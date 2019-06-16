@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>归档 | Hexo</title>
+    <title>算法：最大公约数 | Hexo</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -169,76 +169,128 @@
         <div class="main-container">
           <div class="content">
             
-<div id="archive" class="archive page">
-  <h1 class="page-title">归档</h1>
-  <h2 class="page-counter">
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/算法：最大公约数/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="郑永荣">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Hexo">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">算法：最大公约数</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T15:00:52+08:00">2019-06-16 15:00:52</time></span>
+        </span>
+        
+        
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>#欧几里得算法：两个整数的最大公约数等于其中较小的那个数和两数相除余数的最大公约数。</p>
+<p>问题：求p,q的最大公约数：</p>
+<blockquote>
+<p>（1）若q=0;p为最大公约数；<br>（2）否则，p除以q的余数r，p和q的最大公约数为q与r的最大公约数</p>
+</blockquote>
+<figure class="hljs highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">GongYueShu</span> &#123;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">gongyueshu</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> x,<span class="hljs-keyword">int</span> y</span>)</span> &#123;<br>		<br>		<span class="hljs-keyword">if</span>(y==<span class="hljs-number">0</span>) <br>			<span class="hljs-keyword">return</span> x;<br>		<span class="hljs-keyword">int</span> r=x%y;<br>		<span class="hljs-keyword">return</span> gongyueshu(y, r);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String arg[]</span>)</span> &#123;<br>		<br>		System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"公约数："</span>+gongyueshu(<span class="hljs-number">100</span>, <span class="hljs-number">20</span>));	<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+    </main>
+    <footer class="post-footer">
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
     
-    你已经写了 4 篇文章！
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
     
-  </h2>
+    
+    
+  </div>
+</div>
+
+
   
   
-  
-  
-  <h2 class="page-title">2019
-  
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/16/算法：最大公约数/" itemprop="url">算法：最大公约数</a>
-      </h1>
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
       
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T15:00:52+08:00">06-16</time>
-      </span>
+      <a href="/2019/06/16/算法：使用Java实现两个矩阵相乘/" rel="next" title="算法：使用Java实现两个矩阵相乘"><i class="fas fa-angle-left"></i><span class="nav-title">算法：使用Java实现两个矩阵相乘</span></a>
       
-    </header>
-  </article>
-  
-  
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/16/算法：使用Java实现两个矩阵相乘/" itemprop="url">算法：使用Java实现两个矩阵相乘</a>
-      </h1>
+    </div>
+    <div class="page-nav-prev page-nav-item">
       
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T14:59:43+08:00">06-16</time>
-      </span>
-      
-    </header>
-  </article>
+    </div>
+  </nav>
   
   
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/16/基于Hexo-Github搭建个人博客/" itemprop="url">基于Hexo+Github搭建个人博客</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T14:10:43+08:00">06-16</time>
-      </span>
-      
-    </header>
-  </article>
+  
+
+<div class="comments" id="comments">
   
   
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/16/hello-world/" itemprop="url">Hello World</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T09:51:50+08:00">06-16</time>
-      </span>
-      
-    </header>
-  </article>
+  <div class="commentjs" id="comment-thread"></div>
+  <link rel="stylesheet" href="/css/commentjs.css">
+  <script defer type="text/javascript" src="/js/marked.min.js"></script>
+  <script defer type="text/javascript" src="/js/timeago.min.js"></script>
+  <script defer type="text/javascript" src="/js/highlight.min.js"></script>
+  <script defer type="text/javascript" src="/js/commentjs.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    getComments({
+      "type": "github",
+      "user": "ZhengYongrong",
+      "repo": "zhengyongrong.github.io/",
+      "client_id": "dbb10a7d36854a594d8a",
+      "client_secret": "f4d16b6764d31f01d97b31bb622ec3e48514c994",
+      "no_comment": "这个页面还没有评论，现在就去评论吧！",
+      "go_to_comment": "去评论",
+      "issue_title": "算法：最大公约数",
+      "btn_class": "button",
+      "comments_target": "#comment-thread"
+    });
+    marked.setOptions({
+      "highlight": function (code, lang) {
+        return hljs.highlightAuto(code).value;
+      }
+    });
+    function mark() {
+      var markdowns = document.getElementsByClassName("markdown");
+      for (var i = 0; i < markdowns.length; ++i){
+        if (markdowns[i].innerHTML) {
+          markdowns[i].innerHTML = marked(markdowns[i].innerHTML);
+        }
+      }
+    }
+    window.addEventListener("DOMContentLoaded", mark, false);
+    window.addEventListener("load", mark, false);
+  });
+  </script>
   
   
-</h2></div>
+</div>
+
+
+
+  
+</div>
 
           </div>
           
@@ -281,6 +333,11 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
     
     
     <hr>

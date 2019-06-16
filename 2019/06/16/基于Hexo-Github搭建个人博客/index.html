@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>Hello World | Hexo</title>
+    <title>基于Hexo+Github搭建个人博客 | Hexo</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -173,7 +173,7 @@
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/hello-world/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/基于Hexo-Github搭建个人博客/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="郑永荣">
        <meta itemprop="description" content>
@@ -184,11 +184,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">Hello World</h1>
+      <h1 class="post-title" itemprop="name headline">基于Hexo+Github搭建个人博客</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T09:51:50+08:00">2019-06-16 09:51:50</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T14:10:43+08:00">2019-06-16 14:10:43</time></span>
         </span>
         
         
@@ -198,19 +198,78 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">"My New Post"</span><br></code></pre></td></tr></table></figure>
+      <p>一直想要拥有自己的一个博客，CSDN，那些又觉得不够个性化</p>
+<p> <strong>Github搭建博客的优点：</strong></p>
+<blockquote>
+<p>1、不需要域名和服务器<br>2、访问自己博客的时候没有广告<br>3、可以自己修改样式，能根据自己的需求加功能。</p>
+</blockquote>
+<p>首先来一篇预览的博客，让大家看看效果：这是我自己用Github搭建的：<a href="https://zhengyongrong.github.io/" target="_blank" rel="noopener">https://zhengyongrong.github.io/</a></p>
+<h2 id="以下操作基于Windows环境"><a href="#以下操作基于Windows环境" class="headerlink" title="以下操作基于Windows环境"></a><strong>以下操作基于Windows环境</strong></h2><p>首先博客搭建的环境﻿</p>
+<blockquote>
+<p>node.js 因为整个博客框架是基于node.js的，所以必须安装node.js环境，安装过程中一路Next即可。<br>Git客户端 Git用来将hexo的相关文件部署到Github上去，安装过程一路Next。</p>
+</blockquote>
+<h2 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h2><blockquote>
+<p>环境准备好以后，我们便可以安装hexo的博客框架。<br>在桌面鼠标右击，选择 Git Bash Here,</p>
+</blockquote>
+<p>然后就会打开Git的命令窗口，在命令窗口输入安装命令后，然后回车</p>
+<figure class="hljs highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">npm <span class="hljs-keyword">install</span> -g hexo<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<p>然后在指定的盘新建一个名为“ hexo ”的文件夹，然后以下的命令都在新建的hexo文件下进行</p>
+<blockquote>
+<p>在这个新建的文件夹内鼠标右键，同样选择Git Bash Here,输入初始化命令，然后回车;<br>等命令执行完，就会看到生成了一系列的文件；</p>
+</blockquote>
+<figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">hexo init</span><br></code></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+<p>安装相关的依赖包，输入下面的命令，回车</p>
+<figure class="hljs highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">npm <span class="hljs-keyword">install</span><br></code></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+<p>接着在hexo文件夹下面继续执行以下命令</p>
+<figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">hexo g<br>hexo s</span><br></code></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>命令执行完后浏览器访问<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> ,就会看到hexo的初始界面，是不是有着一丝丝的成就感？但是，这个界面还是在本地，别人并不能看到，想要别人看到，我们就必须将这些文件部署到Github上去。</p>
+<h2 id="创建Github号"><a href="#创建Github号" class="headerlink" title="创建Github号"></a>创建Github号</h2><blockquote>
+<p>首先我们需要到Github官网创建一个账号，创建链接：Github</p>
+</blockquote>
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><blockquote>
+<p>创建完账号后我们新建一个Repository</p>
+</blockquote>
+<p><strong>这里要注意仓库的名字，必须是自己的Github账户的用户名.github.io</strong></p>
+<h2 id="部署文件到Github"><a href="#部署文件到Github" class="headerlink" title="部署文件到Github"></a>部署文件到Github</h2><blockquote>
+<p>接下来就是部署文件到Github了。<br>用Nodepad++打开hexo文件夹下面的_config.yml文件，该文件的最下面找到关键字deploy,然后修改成下面这样，用我自己的做案例</p>
+</blockquote>
+<figure class="hljs highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">  type:</span> git<br><span class="hljs-symbol">  repository:</span> <span class="hljs-params">&lt;https://github.com/Chakid/Chakid.github.io.git&gt;</span><br><span class="hljs-symbol">  branch:</span> master<br></code></pre></td></tr></table></figure>
+
+<p>这里拥有两个注意点：</p>
+<blockquote>
+<p>1、每个冒号后面都有一个空格，修改的时候别忘了；<br>2、注意修改的对应点要是自己的Github的账户名，别修改错了。<br>修改完保存<br>但是这样还不能连接到 github ，我们还需要配置SSH，找到路径C:\Users\leeyom.ssh，如果已经存在SSH Keys ，直接删除.ssh 文件夹下的所有的文件，如下图。</p>
+</blockquote>
+<p>然后继续在hexo文件夹下面输入下面的指令</p>
+<figure class="hljs highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-selector-tag">ssh-keygen</span> <span class="hljs-selector-tag">-t</span> <span class="hljs-selector-tag">rsa</span> <span class="hljs-selector-tag">-C</span> "1547658639@<span class="hljs-keyword">qq</span>.<span class="hljs-keyword">com</span>"<br></code></pre></td></tr></table></figure>
+
+<p>然后再回车三次，等命令执行完，再输入以下指令</p>
+<figure class="hljs highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">eval `ssh-agent -s`<br>ssh-add<br></code></pre></td></tr></table></figure>
+
+<p>然后输入指令拷贝Key</p>
+<figure class="hljs highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">clip &lt; ~<span class="hljs-regexp">/.ssh/i</span>d_rsa.pub<br></code></pre></td></tr></table></figure>
+
+<p>然后进入自己刚注册的Github</p>
+<p>接下来测试ssh是否配好了，输入下面的指令，会提示你输入yes/no你输入yes就行，这样ssh就配好了，接下来我们就可以将项目部署到Github上面了。</p>
+<figure class="hljs highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-selector-tag">ssh</span> <span class="hljs-selector-tag">-T</span> <span class="hljs-selector-tag">git</span>@<span class="hljs-keyword">github</span>.<span class="hljs-keyword">com</span><br></code></pre></td></tr></table></figure>
+
+<p>然后执行以下命令将项目部署到Github上面</p>
+<figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">hexo g<br>hexo d</span><br></code></pre></td></tr></table></figure>
+
+<p>但是输入hexo d可能会报ERROR Deployer not fount： git错误，这是因为没有安装hexo-deployer-git这个模块，导致Git不能识别该命令，输入下面指令安装该模块即可。</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">npm <span class="hljs-keyword">install</span> hexo-deployer-git <span class="hljs-comment">--save</span><br></code></pre></td></tr></table></figure>
+
+<p>安装该模块的时间由网速决定，因为Github毕竟是国外的网站，并不是很稳定，所以请读者耐心等待。有事可能会因为断网等导致该模块安装失败，安装失败时还请读者多试两边。等模块安装完再次执行</p>
+<figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">hexo d</span><br></code></pre></td></tr></table></figure>
+
+<p>这是就会有弹出框，输入自己之前注册的github账号进行登录即可，然后浏览器输入Chakid.github.io进行访问即可，（将Chakid改成自己之前注册的Github的用户名即可） 这时就会发现可以访问自己之前在本地预览的页面了。</p>
+<h2 id="此时是不是有着一丝丝的成就感，终于有了属于自己的博客。"><a href="#此时是不是有着一丝丝的成就感，终于有了属于自己的博客。" class="headerlink" title="此时是不是有着一丝丝的成就感，终于有了属于自己的博客。"></a>此时是不是有着一丝丝的成就感，终于有了属于自己的博客。</h2><h2 id="附录："><a href="#附录：" class="headerlink" title="附录："></a><strong>附录：</strong></h2><p>常用指令</p>
+<figure class="hljs highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined">hexo g #完整命令为hexo <span class="hljs-keyword">generate</span>,用于生成静态文件<br>hexo s #完整命令为hexo server,用于启动服务器，主要用来本地预览<br>hexo d #完整命令为hexo deploy,用于将本地文件发布到github上<br>hexo n #完整命令为hexo <span class="hljs-keyword">new</span>,用于新建一篇文章<br></code></pre></td></tr></table></figure>
+
+<p>转载自<a href="https://www.chakid.com/" target="_blank" rel="noopener">https://www.chakid.com/</a> ，感谢该作者。</p>
 
     </main>
     <footer class="post-footer">
@@ -240,10 +299,12 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
+      <a href="/2019/06/16/hello-world/" rel="next" title="Hello World"><i class="fas fa-angle-left"></i><span class="nav-title">Hello World</span></a>
+      
     </div>
     <div class="page-nav-prev page-nav-item">
       
-      <a href="/2019/06/16/基于Hexo-Github搭建个人博客/" rel="prev" title="基于Hexo+Github搭建个人博客"><span class="nav-title">基于Hexo+Github搭建个人博客</span><i class="fas fa-angle-right"></i></a>
+      <a href="/2019/06/16/算法：使用Java实现两个矩阵相乘/" rel="prev" title="算法：使用Java实现两个矩阵相乘"><span class="nav-title">算法：使用Java实现两个矩阵相乘</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -270,7 +331,7 @@
       "client_secret": "f4d16b6764d31f01d97b31bb622ec3e48514c994",
       "no_comment": "这个页面还没有评论，现在就去评论吧！",
       "go_to_comment": "去评论",
-      "issue_title": "Hello World",
+      "issue_title": "基于Hexo+Github搭建个人博客",
       "btn_class": "button",
       "comments_target": "#comment-thread"
     });
@@ -349,7 +410,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#以下操作基于Windows环境"><span class="toc-text">以下操作基于Windows环境</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#安装hexo框架"><span class="toc-text">安装hexo框架</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#创建Github号"><span class="toc-text">创建Github号</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#创建仓库"><span class="toc-text">创建仓库</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#部署文件到Github"><span class="toc-text">部署文件到Github</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#此时是不是有着一丝丝的成就感，终于有了属于自己的博客。"><span class="toc-text">此时是不是有着一丝丝的成就感，终于有了属于自己的博客。</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#附录："><span class="toc-text">附录：</span></a></li></ol></div>
     </div>
     
     
