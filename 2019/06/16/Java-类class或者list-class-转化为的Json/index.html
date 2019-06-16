@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>算法：最大公约数 | 个人博客</title>
+    <title>Java 类class或者list<class>转化为的Json | 个人博客</class></title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -173,7 +173,7 @@
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/算法：最大公约数/">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/Java-类class或者list-class-转化为的Json/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
        <meta itemprop="name" content="郑永荣">
        <meta itemprop="description" content>
@@ -184,11 +184,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">算法：最大公约数</h1>
+      <h1 class="post-title" itemprop="name headline">Java 类class或者list<class>转化为的Json</class></h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T15:00:52+08:00">2019-06-16 15:00:52</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T21:13:41+08:00">2019-06-16 21:13:41</time></span>
         </span>
         
         
@@ -198,12 +198,18 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <p>#欧几里得算法：两个整数的最大公约数等于其中较小的那个数和两数相除余数的最大公约数。</p>
-<p>问题：求p,q的最大公约数：</p>
-<blockquote>
-<p>（1）若q=0;p为最大公约数；<br>（2）否则，p除以q的余数r，p和q的最大公约数为q与r的最大公约数</p>
-</blockquote>
-<figure class="hljs highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">GongYueShu</span> &#123;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">gongyueshu</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> x,<span class="hljs-keyword">int</span> y</span>)</span> &#123;<br>		<br>		<span class="hljs-keyword">if</span>(y==<span class="hljs-number">0</span>) <br>			<span class="hljs-keyword">return</span> x;<br>		<span class="hljs-keyword">int</span> r=x%y;<br>		<span class="hljs-keyword">return</span> gongyueshu(y, r);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String arg[]</span>)</span> &#123;<br>		<br>		System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"公约数："</span>+gongyueshu(<span class="hljs-number">100</span>, <span class="hljs-number">20</span>));	<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+      <p>Java的Json解析包FastJson使用<br>阿里巴巴FastJson是一个Json处理工具包，包括“序列化”和“反序列化”两部分，它具备如下特征：<br>速度最快，测试表明，fastjson具有极快的性能，超越任其他的Java Json parser。包括自称最快的JackJson；<br>功能强大，完全支持Java Bean、集合、Map、日期、Enum，支持范型，支持自省；无依赖，能够直接运行在Java SE 5.0以上版本；支持Android；开源 (Apache 2.0)</p>
+<p>源码地址：<a href="https://github.com/alibaba/fastjson" target="_blank" rel="noopener">https://github.com/alibaba/fastjson</a><br><strong>Maven</strong></p>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>fastjson<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.54<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>Fastjson API入口类是com.alibaba.fastjson.JSON，常用的序列化操作都可以在JSON类上的静态方法直接完成。</p>
+<figure class="hljs highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">*<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">String</span> toJSONString(<span class="hljs-keyword">Object</span> object); <span class="hljs-comment">// 将JavaBean序列化为JSON文本 </span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">String</span> toJSONString(<span class="hljs-keyword">Object</span> object, <span class="hljs-built_in">boolean</span> prettyFormat); <span class="hljs-comment">// 将JavaBean序列化为带格式的JSON文本 </span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">Object</span> toJSON(<span class="hljs-keyword">Object</span> javaObject); 将JavaBean转换为<span class="hljs-keyword">JSONObject</span>或者<span class="hljs-keyword">JSONArray</span>。<br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">package</span> bean;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassToJson</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;<br>    <span class="hljs-keyword">private</span> String name;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ClassToJson</span><span class="hljs-params">(<span class="hljs-keyword">int</span> age, String name)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.age = age;<br>        <span class="hljs-keyword">this</span>.name = name;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getAge</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> age;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setAge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> age)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.age = age;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.name = name;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs undefined">public static <span class="hljs-keyword">void</span> main(<span class="hljs-built_in">String</span>[] args) &#123;<br>        ClassToJson classTJ=<span class="hljs-keyword">new</span> ClassToJson(<span class="hljs-number">15</span>,<span class="hljs-string">"刘诗诗"</span>);<br>        List&lt;ClassToJson&gt; <span class="hljs-built_in">list</span>=<span class="hljs-keyword">new</span> ArrayList&lt;ClassToJson&gt;();<br>        <span class="hljs-built_in">list</span>.add(classTJ);<br><br>        <span class="hljs-built_in">list</span>.add(<span class="hljs-keyword">new</span> ClassToJson(<span class="hljs-number">18</span>,<span class="hljs-string">"Stephen"</span>));<br>        <span class="hljs-comment">//将集合或者对象序例化成JSON</span><br>        <span class="hljs-built_in">JSON</span> json= (<span class="hljs-built_in">JSON</span>) <span class="hljs-built_in">JSON</span>.toJSON(<span class="hljs-built_in">list</span>);<br>        System.out.println(json);<br>        System.out.println(<span class="hljs-built_in">JSON</span>.toJSON(<span class="hljs-built_in">list</span>));<br>        System.out.println(<span class="hljs-built_in">JSON</span>.toJSON(classTJ));<br>        System.out.println(<span class="hljs-built_in">JSON</span>.toJSONString(<span class="hljs-built_in">list</span>));<br>        System.out.println(<span class="hljs-built_in">JSON</span>.toJSONString(classTJ));<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+
     </main>
     <footer class="post-footer">
       
@@ -232,12 +238,10 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
-      <a href="/2019/06/16/算法：使用Java实现两个矩阵相乘/" rel="next" title="算法：使用Java实现两个矩阵相乘"><i class="fas fa-angle-left"></i><span class="nav-title">算法：使用Java实现两个矩阵相乘</span></a>
+      <a href="/2019/06/16/基于Maven的C3P0连接池使用教程/" rel="next" title="基于Maven的C3P0连接池使用教程"><i class="fas fa-angle-left"></i><span class="nav-title">基于Maven的C3P0连接池使用教程</span></a>
       
     </div>
     <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2019/06/16/基于Maven的C3P0连接池使用教程/" rel="prev" title="基于Maven的C3P0连接池使用教程"><span class="nav-title">基于Maven的C3P0连接池使用教程</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
