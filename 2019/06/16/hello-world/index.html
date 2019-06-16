@@ -254,41 +254,26 @@
 <div class="comments" id="comments">
   
   
-  <div class="commentjs" id="comment-thread"></div>
-  <link rel="stylesheet" href="/css/commentjs.css">
-  <script defer type="text/javascript" src="/js/marked.min.js"></script>
-  <script defer type="text/javascript" src="/js/timeago.min.js"></script>
-  <script defer type="text/javascript" src="/js/highlight.min.js"></script>
-  <script defer type="text/javascript" src="/js/commentjs.js"></script>
+  <div id="vcomments" class="vcomments"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
   <script type="text/javascript">
   $(document).ready(function () {
-    getComments({
-      "type": "github",
-      "user": "ZhengYongrong",
-      "repo": "zhengyongrong.github.io/",
-      "client_id": "dbb10a7d36854a594d8a",
-      "client_secret": "f4d16b6764d31f01d97b31bb622ec3e48514c994",
-      "no_comment": "这个页面还没有评论，现在就去评论吧！",
-      "go_to_comment": "去评论",
-      "issue_title": "Hello World",
-      "btn_class": "button",
-      "comments_target": "#comment-thread"
+    new Valine({
+      "el": "#vcomments",
+      "appId": "hW4tpVA35RheDKY3J8TWE2JS-gzGzoHsz",
+      "appKey": "rR6O9TjnxpwjSQV7yRCrRKvH",
+      "verify": "false",
+      "notify": "false",
+      "avatar": "mm",
+      "meta": ["nick", "mail", "link"],
+      "pageSize": 10,
+      "lang": "zh-cn",
+      "visitor": "false",
+      "highlight": "true",
+      "placeholder": "在这里说点什么……",
+      "avatarForce": "false"
     });
-    marked.setOptions({
-      "highlight": function (code, lang) {
-        return hljs.highlightAuto(code).value;
-      }
-    });
-    function mark() {
-      var markdowns = document.getElementsByClassName("markdown");
-      for (var i = 0; i < markdowns.length; ++i){
-        if (markdowns[i].innerHTML) {
-          markdowns[i].innerHTML = marked(markdowns[i].innerHTML);
-        }
-      }
-    }
-    window.addEventListener("DOMContentLoaded", mark, false);
-    window.addEventListener("load", mark, false);
   });
   </script>
   
