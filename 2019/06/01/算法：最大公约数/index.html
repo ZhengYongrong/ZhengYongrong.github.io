@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>归档 | 个人博客</title>
+    <title>算法：最大公约数 | 个人博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -156,7 +156,7 @@
         
         <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
         
-        <li role="menuitem"><a href="/archives/" class="current"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
         
       </ul>
     </nav>
@@ -169,94 +169,115 @@
         <div class="main-container">
           <div class="content">
             
-<div id="archive" class="archive page">
-  <h1 class="page-title">归档</h1>
-  <h2 class="page-counter">
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/01/算法：最大公约数/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="郑永荣">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="个人博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">算法：最大公约数</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-01T15:00:52+08:00">2019-06-01 15:00:52</time></span>
+        </span>
+        
+        
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>#欧几里得算法：两个整数的最大公约数等于其中较小的那个数和两数相除余数的最大公约数。</p>
+<p>问题：求p,q的最大公约数：</p>
+<blockquote>
+<p>（1）若q=0;p为最大公约数；<br>（2）否则，p除以q的余数r，p和q的最大公约数为q与r的最大公约数</p>
+</blockquote>
+<figure class="hljs highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">GongYueShu</span> &#123;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">gongyueshu</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> x,<span class="hljs-keyword">int</span> y</span>)</span> &#123;<br>		<br>		<span class="hljs-keyword">if</span>(y==<span class="hljs-number">0</span>) <br>			<span class="hljs-keyword">return</span> x;<br>		<span class="hljs-keyword">int</span> r=x%y;<br>		<span class="hljs-keyword">return</span> gongyueshu(y, r);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String arg[]</span>)</span> &#123;<br>		<br>		System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"公约数："</span>+gongyueshu(<span class="hljs-number">100</span>, <span class="hljs-number">20</span>));	<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+    </main>
+    <footer class="post-footer">
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
     
-    你已经写了 7 篇文章！
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
     
-  </h2>
+    
+    
+  </div>
+</div>
+
+
   
   
-  
-  
-  <h2 class="page-title">2019
-  
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/16/Java-类class或者list-class-转化为的Json/" itemprop="url">Java 类class或者list<class>转化为的Json</class></a>
-      </h1>
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
       
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T21:13:41+08:00">06-16</time>
-      </span>
+      <a href="/2019/03/26/基于Maven的C3P0连接池使用教程/" rel="next" title="基于Maven的C3P0连接池使用教程"><i class="fas fa-angle-left"></i><span class="nav-title">基于Maven的C3P0连接池使用教程</span></a>
       
-    </header>
-  </article>
-  
-  
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/16/算法：使用Java实现两个矩阵相乘/" itemprop="url">算法：使用Java实现两个矩阵相乘</a>
-      </h1>
+    </div>
+    <div class="page-nav-prev page-nav-item">
       
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T14:59:43+08:00">06-16</time>
-      </span>
+      <a href="/2019/06/16/基于Hexo-Github搭建个人博客/" rel="prev" title="基于Hexo+Github搭建个人博客"><span class="nav-title">基于Hexo+Github搭建个人博客</span><i class="fas fa-angle-right"></i></a>
       
-    </header>
-  </article>
-  
-  
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/16/基于Hexo-Github搭建个人博客/" itemprop="url">基于Hexo+Github搭建个人博客</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T14:10:43+08:00">06-16</time>
-      </span>
-      
-    </header>
-  </article>
-  
-  
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/01/算法：最大公约数/" itemprop="url">算法：最大公约数</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-01T15:00:52+08:00">06-01</time>
-      </span>
-      
-    </header>
-  </article>
-  
-  
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/03/26/基于Maven的C3P0连接池使用教程/" itemprop="url">基于Maven的C3P0连接池使用教程</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-03-26T21:12:20+08:00">03-26</time>
-      </span>
-      
-    </header>
-  </article>
-  
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    </div>
   </nav>
   
-</h2></div>
+  
+  
+
+<div class="comments" id="comments">
+  
+  
+  <div id="vcomments" class="vcomments"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    new Valine({
+      "el": "#vcomments",
+      "appId": "hW4tpVA35RheDKY3J8TWE2JS-gzGzoHsz",
+      "appKey": "rR6O9TjnxpwjSQV7yRCrRKvH",
+      "verify": "false",
+      "notify": "false",
+      "avatar": "mm",
+      "meta": ["nick", "mail", "link"],
+      "pageSize": 10,
+      "lang": "zh-cn",
+      "visitor": "false",
+      "highlight": "true",
+      "placeholder": "在这里说点什么……",
+      "avatarForce": "false"
+    });
+  });
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
 
           </div>
           
@@ -299,6 +320,11 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
     
     
     <hr>
