@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>Hello World | 个人博客</title>
+    <title>个人博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -175,22 +175,86 @@
         <div class="main-container">
           <div class="content">
             
-<div id="post" class="page">
+
+<div id="index" class="index page">
+  
+  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/16/Mysql-Oracle-SQL-server-分页查询/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="郑永荣">
+        <meta itemprop="description" content>
+        <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="个人博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2018/12/16/Mysql-Oracle-SQL-server-分页查询/" itemprop="url">Mysql,Oracle,SQL server 分页查询</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-16T21:09:18+08:00">2018-12-16 21:09:18</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+        </span>
+        
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h2 id="Mysql分页查询"><a href="#Mysql分页查询" class="headerlink" title="Mysql分页查询"></a>Mysql分页查询</h2><p><strong>PageNo 为当前页数，PageSize为每页的条数</strong></p>
+<figure class="hljs highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">SELECT</span>    *<br><span class="hljs-keyword">FROM</span>  TABLE_NAME<br><span class="hljs-keyword">LIMIT</span> (PageNo - <span class="hljs-number">1</span>) * PageSize,PageSize;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Oracel的分页查询："><a href="#Oracel的分页查询：" class="headerlink" title="Oracel的分页查询："></a>Oracel的分页查询：</h2><p><strong>其中最内层的查询SELECT * FROM TABLE_NAME表示不进行翻页的原始查询语句。ROWNUM &lt;= 40和RN &gt;= 21控制分页查询的每页的范围。</strong></p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span>  <br>(  <br><span class="hljs-keyword">SELECT</span> A.*, <span class="hljs-keyword">ROWNUM</span> RN  <br><span class="hljs-keyword">FROM</span> (<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> TABLE_NAME) A  <br><span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">ROWNUM</span> &lt;= <span class="hljs-number">40</span>  <br>)  <br><span class="hljs-keyword">WHERE</span> RN &gt;= <span class="hljs-number">21</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="SQL-Server分页查询"><a href="#SQL-Server分页查询" class="headerlink" title="SQL Server分页查询"></a>SQL Server分页查询</h2><p><strong>假设每页的条数是10，现在要拿出第5页的内容，查询语句如下：</strong></p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">select</span> top <span class="hljs-number">10</span> *<br><span class="hljs-keyword">from</span> TABLE_NAME<br><span class="hljs-keyword">where</span> <span class="hljs-keyword">id</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span><br>(<br> 条数是这么计算出来的：<span class="hljs-number">10</span>*(<span class="hljs-number">5</span><span class="hljs-number">-1</span>)=<span class="hljs-number">40</span><br> <span class="hljs-keyword">select</span> top <span class="hljs-number">40</span> <span class="hljs-keyword">id</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">test</span> <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">id</span><br>)<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">id</span><br></code></pre></td></tr></table></figure>
+
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/数据库/" rel="tag"><i class="fas fa-tags"></i>数据库</a>
+        
+      </div>
+      
+    </footer>
+  </article>
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/16/hello-world/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-       <meta itemprop="name" content="郑永荣">
-       <meta itemprop="description" content>
-       <meta itemprop="image" content="/images/myavatar.png">
+        <meta itemprop="name" content="郑永荣">
+        <meta itemprop="description" content>
+        <meta itemprop="image" content="/images/myavatar.png">
       </span>
       <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-       <meta itemprop="name" content="个人博客">
+        <meta itemprop="name" content="个人博客">
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">Hello World</h1>
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2017/08/16/hello-world/" itemprop="url">Hello World</a>
+      </h1>
       <div class="post-meta">
         
         <span class="post-date">
@@ -212,6 +276,7 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
+      
       <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">"My New Post"</span><br></code></pre></td></tr></table></figure>
 
@@ -226,6 +291,7 @@
 
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
+      
     </main>
     <footer class="post-footer">
       
@@ -239,33 +305,8 @@
   </article>
   
   
-<div class="reward" id="reward">
-  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
-  <button id="reward-button" class="button" disable="enable">打赏</button>
-  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
-    
-    <div id="wechat">
-      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
-      <span>微信支付</span>
-    </div>
-    
-    
-    
-  </div>
-</div>
-
-
-  
-  
-  <nav class="page-nav">
-    <div class="page-nav-next page-nav-item">
-      
-    </div>
-    <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2018/12/16/Mysql-Oracle-SQL-server-分页查询/" rel="prev" title="Mysql,Oracle,SQL server 分页查询"><span class="nav-title">Mysql,Oracle,SQL server 分页查询</span><i class="fas fa-angle-right"></i></a>
-      
-    </div>
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
   
   
@@ -273,29 +314,6 @@
 
 <div class="comments" id="comments">
   
-  
-  <div id="vcomments" class="vcomments"></div>
-  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  <script type="text/javascript">
-  $(document).ready(function () {
-    new Valine({
-      "el": "#vcomments",
-      "appId": "hW4tpVA35RheDKY3J8TWE2JS-gzGzoHsz",
-      "appKey": "rR6O9TjnxpwjSQV7yRCrRKvH",
-      "verify": "false",
-      "notify": "false",
-      "avatar": "mm",
-      "meta": ["nick", "mail", "link"],
-      "pageSize": 10,
-      "lang": "zh-cn",
-      "visitor": "false",
-      "highlight": "true",
-      "placeholder": "在这里说点什么……",
-      "avatarForce": "false"
-    });
-  });
-  </script>
   
   
 </div>
@@ -362,17 +380,6 @@
 
 
   <div class="sidebar-sticky">
-    
-    
-    
-    
-    
-    <hr>
-    <div class="post-toc sidebar-item" id="toc-div">
-      <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
-    </div>
-    
     
     
     <hr>

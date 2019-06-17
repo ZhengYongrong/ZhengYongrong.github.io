@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-16T13:14:06.435Z</updated>
+  <updated>2019-06-17T11:58:47.750Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hibernate关于FetchType.LAZY和FetchType.EAGER什么区别</title>
+    <link href="http://yoursite.com/2019/06/17/hibernate%E5%85%B3%E4%BA%8EFetchType-LAZY%E5%92%8CFetchType-EAGER%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yoursite.com/2019/06/17/hibernate关于FetchType-LAZY和FetchType-EAGER什么区别/</id>
+    <published>2019-06-17T11:43:13.000Z</published>
+    <updated>2019-06-17T11:58:47.750Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、&lt;strong&gt;FetchType.LAZY：&lt;/strong&gt;懒加载，加载一个实体时，定义懒加载的属性不会马上从数据库中加载。&lt;/p&gt;
+&lt;p&gt;2、&lt;strong&gt;FetchType.EAGER：&lt;/strong&gt;急加载，加载一个实体时，定义急加载的属性会立即从数据库中
+        
+      
+    
+    </summary>
+    
+      <category term="Hibernate" scheme="http://yoursite.com/categories/Hibernate/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+      <category term="Hibernate" scheme="http://yoursite.com/tags/Hibernate/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java 类class或者list&lt;class&gt;转化为的Json</title>
     <link href="http://yoursite.com/2019/06/16/Java-%E7%B1%BBclass%E6%88%96%E8%80%85list-class-%E8%BD%AC%E5%8C%96%E4%B8%BA%E7%9A%84Json/"/>
     <id>http://yoursite.com/2019/06/16/Java-类class或者list-class-转化为的Json/</id>
     <published>2019-06-16T13:13:41.000Z</published>
-    <updated>2019-06-16T13:14:06.435Z</updated>
+    <updated>2019-06-17T11:36:27.147Z</updated>
     
     <summary type="html">
     
@@ -35,6 +64,10 @@
     
     </summary>
     
+      <category term="Java后端" scheme="http://yoursite.com/categories/Java%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
   </entry>
   
@@ -43,7 +76,7 @@
     <link href="http://yoursite.com/2019/06/16/%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BD%BF%E7%94%A8Java%E5%AE%9E%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%9F%A9%E9%98%B5%E7%9B%B8%E4%B9%98/"/>
     <id>http://yoursite.com/2019/06/16/算法：使用Java实现两个矩阵相乘/</id>
     <published>2019-06-16T06:59:43.000Z</published>
-    <updated>2019-06-16T07:00:08.003Z</updated>
+    <updated>2019-06-17T11:35:08.895Z</updated>
     
     <summary type="html">
     
@@ -57,6 +90,12 @@
     
     </summary>
     
+      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -65,7 +104,7 @@
     <link href="http://yoursite.com/2019/06/16/%E5%9F%BA%E4%BA%8EHexo-Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>http://yoursite.com/2019/06/16/基于Hexo-Github搭建个人博客/</id>
     <published>2019-06-16T06:10:43.000Z</published>
-    <updated>2019-06-16T13:24:31.643Z</updated>
+    <updated>2019-06-17T11:34:11.261Z</updated>
     
     <summary type="html">
     
@@ -80,6 +119,10 @@
     
     </summary>
     
+      <category term="web前端" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
@@ -88,7 +131,7 @@
     <link href="http://yoursite.com/2019/06/01/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/"/>
     <id>http://yoursite.com/2019/06/01/算法：最大公约数/</id>
     <published>2019-06-01T07:00:52.000Z</published>
-    <updated>2019-06-16T13:21:02.454Z</updated>
+    <updated>2019-06-17T11:37:29.325Z</updated>
     
     <summary type="html">
     
@@ -105,6 +148,12 @@
     
     </summary>
     
+      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -113,7 +162,7 @@
     <link href="http://yoursite.com/2019/03/26/%E5%9F%BA%E4%BA%8EMaven%E7%9A%84C3P0%E8%BF%9E%E6%8E%A5%E6%B1%A0%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
     <id>http://yoursite.com/2019/03/26/基于Maven的C3P0连接池使用教程/</id>
     <published>2019-03-26T13:12:20.000Z</published>
-    <updated>2019-06-16T13:21:25.010Z</updated>
+    <updated>2019-06-17T11:34:37.858Z</updated>
     
     <summary type="html">
     
@@ -127,6 +176,10 @@
     
     </summary>
     
+      <category term="Java后端" scheme="http://yoursite.com/categories/Java%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
   </entry>
   
@@ -135,7 +188,7 @@
     <link href="http://yoursite.com/2018/12/16/Mysql-Oracle-SQL-server-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/"/>
     <id>http://yoursite.com/2018/12/16/Mysql-Oracle-SQL-server-分页查询/</id>
     <published>2018-12-16T13:09:18.000Z</published>
-    <updated>2019-06-16T13:21:15.080Z</updated>
+    <updated>2019-06-17T11:33:54.489Z</updated>
     
     <summary type="html">
     
@@ -149,6 +202,10 @@
     
     </summary>
     
+      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
@@ -157,7 +214,7 @@
     <link href="http://yoursite.com/2017/08/16/hello-world/"/>
     <id>http://yoursite.com/2017/08/16/hello-world/</id>
     <published>2017-08-16T06:10:43.000Z</published>
-    <updated>2019-06-16T13:20:18.652Z</updated>
+    <updated>2019-06-17T11:31:51.933Z</updated>
     
     <summary type="html">
     
@@ -171,6 +228,10 @@
     
     </summary>
     
+      <category term="web前端" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   

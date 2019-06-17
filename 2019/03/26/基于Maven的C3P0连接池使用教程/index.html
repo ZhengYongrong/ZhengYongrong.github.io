@@ -158,6 +158,12 @@
         
         <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
         
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
       </ul>
     </nav>
   </div>
@@ -193,6 +199,14 @@
         
         
         
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java后端/" itemprop="url" rel="index"><span itemprop="name">Java后端</span></a></span>
+        </span>
+        
+        
         
         
       </div>
@@ -208,6 +222,12 @@
 <figure class="hljs highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C3p0Utils</span> </span>&#123;<br>    <span class="hljs-keyword">static</span> org.apache.log4j.Logger logger=org.apache.log4j.Logger.getLogger(C3p0Utils.class.getName());<br>    <br>    <span class="hljs-comment">//通过标识名来创建相应连接池</span><br>    <span class="hljs-keyword">static</span> ComboPooledDataSource dataSource=<span class="hljs-keyword">new</span> ComboPooledDataSource(<span class="hljs-string">"mysql"</span>);<br>    <span class="hljs-comment">//从连接池中取用一个连接</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function">Connection <span class="hljs-title">getConnection</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-function"><span class="hljs-keyword">return</span> dataSource.<span class="hljs-title">getConnection</span><span class="hljs-params">()</span></span>;<br>            <br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            logger.<span class="hljs-keyword">error</span>(<span class="hljs-string">"Exception in C3p0Utils!"</span>, e);<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> MyError(<span class="hljs-string">"数据库连接出错!"</span>, e);            <br>        &#125;<br>    &#125;    <br>    <span class="hljs-comment">//释放连接回连接池</span><br>     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">close</span><span class="hljs-params">(Connection conn,PreparedStatement pst,ResultSet rs)</span></span>&#123;  <br>            <span class="hljs-keyword">if</span>(rs!=<span class="hljs-keyword">null</span>)&#123;  <br>                <span class="hljs-keyword">try</span> &#123;  <br>                    rs.close();  <br>                &#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;  <br>                    logger.<span class="hljs-keyword">error</span>(<span class="hljs-string">"Exception in C3p0Utils!"</span>, e);<br>                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> MyError(<span class="hljs-string">"数据库连接关闭出错!"</span>, e);            <br>                &#125;  <br>            &#125;  <br>            <span class="hljs-keyword">if</span>(pst!=<span class="hljs-keyword">null</span>)&#123;  <br>                <span class="hljs-keyword">try</span> &#123;  <br>                    pst.close();  <br>                &#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;  <br>                    logger.<span class="hljs-keyword">error</span>(<span class="hljs-string">"Exception in C3p0Utils!"</span>, e);<br>                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> MyError(<span class="hljs-string">"数据库连接关闭出错!"</span>, e);    <br>                &#125;  <br>            &#125;  <br>      <br>            <span class="hljs-keyword">if</span>(conn!=<span class="hljs-keyword">null</span>)&#123;  <br>                <span class="hljs-keyword">try</span> &#123;  <br>                    conn.close();  <br>                &#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;  <br>                    logger.<span class="hljs-keyword">error</span>(<span class="hljs-string">"Exception in C3p0Utils!"</span>, e);<br>                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> MyError(<span class="hljs-string">"数据库连接关闭出错!"</span>, e);    <br>                &#125;  <br>            &#125;  <br>        &#125;  <br>&#125;<br></code></pre></td></tr></table></figure>
     </main>
     <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Java/" rel="tag"><i class="fas fa-tags"></i>Java</a>
+        
+      </div>
       
     </footer>
   </article>
@@ -308,8 +328,24 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">7</a></div>
+      <div><a href="/archives/">8</a></div>
     </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">6</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">6</a></div>
+    </div>
+    
+    
     
     
   </div>
