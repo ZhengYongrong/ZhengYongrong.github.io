@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>分类: Hibernate | 个人博客</title>
+    <title>SQL语句技巧：查询存在一个表而不在另一个表中的数据记录 | 个人博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -175,22 +175,134 @@
         <div class="main-container">
           <div class="content">
             
-<div id="category" class="category page">
-  <h1 class="page-title">Hibernate</h1>
+<div id="post" class="page">
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/17/hibernate关于FetchType-LAZY和FetchType-EAGER什么区别/" itemprop="url">hibernate关于FetchType.LAZY和FetchType.EAGER什么区别</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-17T19:43:13+08:00">06-17</time>
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/19/SQL语句技巧：查询存在一个表而不在另一个表中的数据记录/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="郑永荣">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/myavatar.png">
       </span>
-      
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="个人博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">SQL语句技巧：查询存在一个表而不在另一个表中的数据记录</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-19T19:48:51+08:00">2019-06-19 19:48:51</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+        </span>
+        
+        
+        
+        
+      </div>
     </header>
+    <main class="post-main" itemprop="articleBody">
+      <h2 id="方法一-仅适用单个字段"><a href="#方法一-仅适用单个字段" class="headerlink" title="方法一(仅适用单个字段)"></a>方法一(仅适用单个字段)</h2><p>使用 not in ,容易理解,效率低</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">select</span> A.ID <span class="hljs-keyword">from</span> A <span class="hljs-keyword">where</span> A.ID <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (<span class="hljs-keyword">select</span> <span class="hljs-keyword">ID</span> <span class="hljs-keyword">from</span> B)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/201906191948308.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="方法二（适用多个字段匹配）"><a href="#方法二（适用多个字段匹配）" class="headerlink" title="方法二（适用多个字段匹配）"></a>方法二（适用多个字段匹配）</h2><p>使用 left join…on… , B.ID isnull  表示左连接之后在B.ID 字段为 null的记录</p>
+<figure class="hljs highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">select</span> A.ID <span class="hljs-keyword">from</span> A <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> B <span class="hljs-keyword">on</span> A.ID=B.ID <span class="hljs-keyword">where</span> B.ID <span class="hljs-keyword">is</span> <span class="hljs-literal">null</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190619194925153.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="方法三（适用多个字段匹配）"><a href="#方法三（适用多个字段匹配）" class="headerlink" title="方法三（适用多个字段匹配）"></a>方法三（适用多个字段匹配）</h2><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> B <span class="hljs-keyword">where</span> (<span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(<span class="hljs-number">1</span>) <span class="hljs-keyword">as</span> <span class="hljs-keyword">num</span> <span class="hljs-keyword">from</span> A <span class="hljs-keyword">where</span> A.ID = B.ID) = <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190619194901174.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="!\[在这里插入图片描述\](https://img-blog.csdnimg.cn/20190619194648578.png"></p>
+<h2 id="方法四（适用多个字段匹配）"><a href="#方法四（适用多个字段匹配）" class="headerlink" title="方法四（适用多个字段匹配）"></a>方法四（适用多个字段匹配）</h2><figure class="hljs highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> A <span class="hljs-keyword">where</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">exists</span>(<span class="hljs-keyword">select</span> <span class="hljs-number">1</span> <span class="hljs-keyword">from</span> B <span class="hljs-keyword">where</span> A.ID=B.ID)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190619194750133.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt></p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/数据库/" rel="tag"><i class="fas fa-tags"></i>数据库</a>
+        
+      </div>
+      
+    </footer>
   </article>
   
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/06/17/hibernate关于FetchType-LAZY和FetchType-EAGER什么区别/" rel="next" title="hibernate关于FetchType.LAZY和FetchType.EAGER什么区别"><i class="fas fa-angle-left"></i><span class="nav-title">hibernate关于FetchType.LAZY和FetchType.EAGER什么区别</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  
+  <div id="vcomments" class="vcomments"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    new Valine({
+      "el": "#vcomments",
+      "appId": "hW4tpVA35RheDKY3J8TWE2JS-gzGzoHsz",
+      "appKey": "rR6O9TjnxpwjSQV7yRCrRKvH",
+      "verify": "false",
+      "notify": "false",
+      "avatar": "mm",
+      "meta": ["nick", "mail", "link"],
+      "pageSize": 10,
+      "lang": "zh-cn",
+      "visitor": "false",
+      "highlight": "true",
+      "placeholder": "在这里说点什么……",
+      "avatarForce": "false"
+    });
+  });
+  </script>
+  
+  
+</div>
+
+
+
   
 </div>
 
@@ -251,6 +363,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#方法一-仅适用单个字段"><span class="toc-text">方法一(仅适用单个字段)</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#方法二（适用多个字段匹配）"><span class="toc-text">方法二（适用多个字段匹配）</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#方法三（适用多个字段匹配）"><span class="toc-text">方法三（适用多个字段匹配）</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#方法四（适用多个字段匹配）"><span class="toc-text">方法四（适用多个字段匹配）</span></a></li></ol></div>
+    </div>
+    
     
     
     <hr>

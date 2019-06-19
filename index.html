@@ -180,6 +180,72 @@
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/19/SQL语句技巧：查询存在一个表而不在另一个表中的数据记录/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="郑永荣">
+        <meta itemprop="description" content>
+        <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="个人博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/06/19/SQL语句技巧：查询存在一个表而不在另一个表中的数据记录/" itemprop="url">SQL语句技巧：查询存在一个表而不在另一个表中的数据记录</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-19T19:48:51+08:00">2019-06-19 19:48:51</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+        </span>
+        
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h2 id="方法一-仅适用单个字段"><a href="#方法一-仅适用单个字段" class="headerlink" title="方法一(仅适用单个字段)"></a>方法一(仅适用单个字段)</h2><p>使用 not in ,容易理解,效率低</p>
+<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">select</span> A.ID <span class="hljs-keyword">from</span> A <span class="hljs-keyword">where</span> A.ID <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (<span class="hljs-keyword">select</span> <span class="hljs-keyword">ID</span> <span class="hljs-keyword">from</span> B)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/201906191948308.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="方法二（适用多个字段匹配）"><a href="#方法二（适用多个字段匹配）" class="headerlink" title="方法二（适用多个字段匹配）"></a>方法二（适用多个字段匹配）</h2><p>使用 left join…on… , B.ID isnull  表示左连接之后在B.ID 字段为 null的记录</p>
+<figure class="hljs highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">select</span> A.ID <span class="hljs-keyword">from</span> A <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> B <span class="hljs-keyword">on</span> A.ID=B.ID <span class="hljs-keyword">where</span> B.ID <span class="hljs-keyword">is</span> <span class="hljs-literal">null</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190619194925153.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="方法三（适用多个字段匹配）"><a href="#方法三（适用多个字段匹配）" class="headerlink" title="方法三（适用多个字段匹配）"></a>方法三（适用多个字段匹配）</h2><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> B <span class="hljs-keyword">where</span> (<span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(<span class="hljs-number">1</span>) <span class="hljs-keyword">as</span> <span class="hljs-keyword">num</span> <span class="hljs-keyword">from</span> A <span class="hljs-keyword">where</span> A.ID = B.ID) = <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190619194901174.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="!\[在这里插入图片描述\](https://img-blog.csdnimg.cn/20190619194648578.png"></p>
+<h2 id="方法四（适用多个字段匹配）"><a href="#方法四（适用多个字段匹配）" class="headerlink" title="方法四（适用多个字段匹配）"></a>方法四（适用多个字段匹配）</h2><figure class="hljs highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> A <span class="hljs-keyword">where</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">exists</span>(<span class="hljs-keyword">select</span> <span class="hljs-number">1</span> <span class="hljs-keyword">from</span> B <span class="hljs-keyword">where</span> A.ID=B.ID)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190619194750133.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt></p>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/数据库/" rel="tag"><i class="fas fa-tags"></i>数据库</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/hibernate关于FetchType-LAZY和FetchType-EAGER什么区别/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="郑永荣">
@@ -314,60 +380,6 @@
     </footer>
   </article>
   
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/算法：使用Java实现两个矩阵相乘/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="郑永荣">
-        <meta itemprop="description" content>
-        <meta itemprop="image" content="/images/myavatar.png">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="个人博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/16/算法：使用Java实现两个矩阵相乘/" itemprop="url">算法：使用Java实现两个矩阵相乘</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T14:59:43+08:00">2019-06-16 14:59:43</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
-        </span>
-        
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <figure class="hljs highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">juzhengxiangcheng</span> </span>&#123;<br><br>	 <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span>[][] matrix(<span class="hljs-keyword">int</span> a[][], <span class="hljs-keyword">int</span> b[][]) &#123;<br>	        <span class="hljs-comment">//当a的列数与矩阵b的行数不相等时，不能进行点乘，返回null</span><br>	        <span class="hljs-keyword">if</span> (a.length != b[<span class="hljs-number">0</span>].length)<br>	            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>	        <span class="hljs-comment">//c矩阵的行数y，与列数x</span><br>	       <span class="hljs-keyword">int</span> N=a.length;<br>	        <span class="hljs-keyword">int</span> c[][] = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[N][N];<br>	        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; N; i++)<br>	            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; N; j++)<br>	                <span class="hljs-comment">//c矩阵的第i行第j列所对应的数值，等于a矩阵的第i行分别乘以b矩阵的第j列之和</span><br>	                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>; k &lt; N; k++)<br>	                    c[i][j] += a[i][k] * b[k][j];<br>	        <span class="hljs-keyword">return</span> c;<br>	 &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/Java/" rel="tag"><i class="fas fa-tags"></i>Java</a>
-        
-        <a class="post-tag button" href="/tags/算法/" rel="tag"><i class="fas fa-tags"></i>算法</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
@@ -414,7 +426,7 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">8</a></div>
+      <div><a href="/archives/">9</a></div>
     </div>
     
     

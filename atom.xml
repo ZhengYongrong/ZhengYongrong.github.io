@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-17T11:58:47.750Z</updated>
+  <updated>2019-06-19T11:53:24.168Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL语句技巧：查询存在一个表而不在另一个表中的数据记录</title>
+    <link href="http://yoursite.com/2019/06/19/SQL%E8%AF%AD%E5%8F%A5%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%9F%A5%E8%AF%A2%E5%AD%98%E5%9C%A8%E4%B8%80%E4%B8%AA%E8%A1%A8%E8%80%8C%E4%B8%8D%E5%9C%A8%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E8%AE%B0%E5%BD%95/"/>
+    <id>http://yoursite.com/2019/06/19/SQL语句技巧：查询存在一个表而不在另一个表中的数据记录/</id>
+    <published>2019-06-19T11:48:51.000Z</published>
+    <updated>2019-06-19T11:53:24.168Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;方法一-仅适用单个字段&quot;&gt;&lt;a href=&quot;#方法一-仅适用单个字段&quot; class=&quot;headerlink&quot; title=&quot;方法一(仅适用单个字段)&quot;&gt;&lt;/a&gt;方法一(仅适用单个字段)&lt;/h2&gt;&lt;p&gt;使用 not in ,容易理解,效率低&lt;/p&gt;
+&lt;figure
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>hibernate关于FetchType.LAZY和FetchType.EAGER什么区别</title>
