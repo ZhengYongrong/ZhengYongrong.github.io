@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head><meta name="generator" content="Hexo 3.8.0">
@@ -134,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>标签 | 个人博客</title>
+    <title>Spring MVC 工作原理 | 个人博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -161,7 +160,7 @@
         
         <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
         
-        <li role="menuitem"><a href="/tags/" class="current"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
         
         <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
         
@@ -176,23 +175,140 @@
         <div class="main-container">
           <div class="content">
             
-<div id="tags" class="tags page">
-  <article class="article post card animate">
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/20/Spring-MVC-工作原理/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="郑永荣">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="个人博客">
+      </span>
+    </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">标签</h1>
-    </header>
-    <main class="post-main">
-      <h2 class="page-counter">
+      <h1 class="post-title" itemprop="name headline">Spring MVC 工作原理</h1>
+      <div class="post-meta">
         
-        你已经创建了 6 个标签！
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-20T23:31:07+08:00">2019-06-20 23:31:07</time></span>
+        </span>
         
-      </h2>
-      <div class="tags-cloud">
-        <a href="/tags/Hexo/" style="font-size: 24px; color: #444">Hexo</a> <a href="/tags/Hibernate/" style="font-size: 16px; color: #777">Hibernate</a> <a href="/tags/Java/" style="font-size: 32px; color: #111">Java</a> <a href="/tags/Spring-MVC/" style="font-size: 16px; color: #777">Spring MVC</a> <a href="/tags/数据库/" style="font-size: 24px; color: #444">数据库</a> <a href="/tags/算法/" style="font-size: 24px; color: #444">算法</a>
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring-MVC/" itemprop="url" rel="index"><span itemprop="name">Spring MVC</span></a></span>
+        </span>
+        
+        
+        
+        
       </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="1-Spring-MVC概述："><a href="#1-Spring-MVC概述：" class="headerlink" title="1.Spring MVC概述："></a>1.Spring MVC概述：</h1><ul>
+<li>Spring MVC是Spring提供的一个强大而灵活的web框架。借助于注解，Spring MVC提供了几乎是POJO的开发模式，使得控制器的开发和测试更加简单。这些控制器一般不直接处理请求，而是将其委托给Spring上下文中的其他bean，通过Spring的依赖注入功能，这些bean被注入到控制器中。</li>
+<li>Spring MVC主要由DispatcherServlet、处理器映射、处理器(控制器)、视图解析器、视图组成。<h4 id="他的两个核心是两个核心："><a href="#他的两个核心是两个核心：" class="headerlink" title="他的两个核心是两个核心："></a>他的两个核心是两个核心：</h4></li>
+<li>处理器映射：选择使用哪个控制器来处理请求 </li>
+<li>视图解析器：选择结果应该如何渲染<blockquote>
+<p>通过以上两点，Spring MVC保证了如何选择控制处理请求和如何选择视图展现输出之间的松耦合。</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="2-SpringMVC运行原理"><a href="#2-SpringMVC运行原理" class="headerlink" title="2.SpringMVC运行原理"></a>2.SpringMVC运行原理</h1><p>   <img src="/.com//SpringMVC.png" alt="你想输入的替代文字"></p>
+<p>   <img src="https://img-blog.csdnimg.cn/20190620232830756.png" alt="在这里插入图片描述"></p>
+<ul>
+<li>(1) Http请求：客户端请求提交到DispatcherServlet。 </li>
+<li>(2) 寻找处理器：由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。 </li>
+<li>(3) 调用处理器：DispatcherServlet将请求提交到Controller。 </li>
+<li>(4)(5)调用业务处理和返回结果：Controller调用业务逻辑处理后，返回ModelAndView。 </li>
+<li>(6)(7)处理视图映射并返回模型： DispatcherServlet查询一个或多个ViewResoler视图解析器，找到ModelAndView指定的视图。 </li>
+<li>(8) Http响应：视图负责将结果显示到客户端。</li>
+</ul>
+
     </main>
-    <footer class="post-footer"></footer>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Spring-MVC/" rel="tag"><i class="fas fa-tags"></i>Spring MVC</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/06/19/SQL语句技巧：查询存在一个表而不在另一个表中的数据记录/" rel="next" title="SQL语句技巧：查询存在一个表而不在另一个表中的数据记录"><i class="fas fa-angle-left"></i><span class="nav-title">SQL语句技巧：查询存在一个表而不在另一个表中的数据记录</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  
+  <div id="vcomments" class="vcomments"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    new Valine({
+      "el": "#vcomments",
+      "appId": "hW4tpVA35RheDKY3J8TWE2JS-gzGzoHsz",
+      "appKey": "rR6O9TjnxpwjSQV7yRCrRKvH",
+      "verify": "false",
+      "notify": "false",
+      "avatar": "mm",
+      "meta": ["nick", "mail", "link"],
+      "pageSize": 10,
+      "lang": "zh-cn",
+      "visitor": "false",
+      "highlight": "true",
+      "placeholder": "在这里说点什么……",
+      "avatarForce": "false"
+    });
+  });
+  </script>
+  
+  
+</div>
+
+
+
+  
 </div>
 
           </div>
@@ -252,6 +368,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#1-Spring-MVC概述："><span class="toc-text">1.Spring MVC概述：</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#他的两个核心是两个核心："><span class="toc-text">他的两个核心是两个核心：</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#2-SpringMVC运行原理"><span class="toc-text">2.SpringMVC运行原理</span></a></li></div>
+    </div>
+    
     
     
     <hr>
@@ -327,5 +454,3 @@
 
   </body>
 </html>
-
-

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-19T11:53:24.168Z</updated>
+  <updated>2019-06-20T16:06:48.401Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring MVC 工作原理</title>
+    <link href="http://yoursite.com/2019/06/20/Spring-MVC-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"/>
+    <id>http://yoursite.com/2019/06/20/Spring-MVC-工作原理/</id>
+    <published>2019-06-20T15:31:07.000Z</published>
+    <updated>2019-06-20T16:06:48.401Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-Spring-MVC概述：&quot;&gt;&lt;a href=&quot;#1-Spring-MVC概述：&quot; class=&quot;headerlink&quot; title=&quot;1.Spring MVC概述：&quot;&gt;&lt;/a&gt;1.Spring MVC概述：&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Spring
+        
+      
+    
+    </summary>
+    
+      <category term="Spring MVC" scheme="http://yoursite.com/categories/Spring-MVC/"/>
+    
+    
+      <category term="Spring MVC" scheme="http://yoursite.com/tags/Spring-MVC/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL语句技巧：查询存在一个表而不在另一个表中的数据记录</title>

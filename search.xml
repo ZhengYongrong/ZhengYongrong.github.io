@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Spring MVC 工作原理</title>
+      <link href="/2019/06/20/Spring-MVC-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"/>
+      <url>/2019/06/20/Spring-MVC-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-Spring-MVC概述："><a href="#1-Spring-MVC概述：" class="headerlink" title="1.Spring MVC概述："></a>1.Spring MVC概述：</h1><ul><li>Spring MVC是Spring提供的一个强大而灵活的web框架。借助于注解，Spring MVC提供了几乎是POJO的开发模式，使得控制器的开发和测试更加简单。这些控制器一般不直接处理请求，而是将其委托给Spring上下文中的其他bean，通过Spring的依赖注入功能，这些bean被注入到控制器中。</li><li>Spring MVC主要由DispatcherServlet、处理器映射、处理器(控制器)、视图解析器、视图组成。<h4 id="他的两个核心是两个核心："><a href="#他的两个核心是两个核心：" class="headerlink" title="他的两个核心是两个核心："></a>他的两个核心是两个核心：</h4></li><li>处理器映射：选择使用哪个控制器来处理请求 </li><li>视图解析器：选择结果应该如何渲染<blockquote><p>通过以上两点，Spring MVC保证了如何选择控制处理请求和如何选择视图展现输出之间的松耦合。</p></blockquote></li></ul><h1 id="2-SpringMVC运行原理"><a href="#2-SpringMVC运行原理" class="headerlink" title="2.SpringMVC运行原理"></a>2.SpringMVC运行原理</h1><p>   <img src="/.com//SpringMVC.png" alt="你想输入的替代文字"></p><p>   <img src="https://img-blog.csdnimg.cn/20190620232830756.png" alt="在这里插入图片描述"></p><ul><li>(1) Http请求：客户端请求提交到DispatcherServlet。 </li><li>(2) 寻找处理器：由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。 </li><li>(3) 调用处理器：DispatcherServlet将请求提交到Controller。 </li><li>(4)(5)调用业务处理和返回结果：Controller调用业务逻辑处理后，返回ModelAndView。 </li><li>(6)(7)处理视图映射并返回模型： DispatcherServlet查询一个或多个ViewResoler视图解析器，找到ModelAndView指定的视图。 </li><li>(8) Http响应：视图负责将结果显示到客户端。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Spring MVC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Spring MVC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQL语句技巧：查询存在一个表而不在另一个表中的数据记录</title>
       <link href="/2019/06/19/SQL%E8%AF%AD%E5%8F%A5%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%9F%A5%E8%AF%A2%E5%AD%98%E5%9C%A8%E4%B8%80%E4%B8%AA%E8%A1%A8%E8%80%8C%E4%B8%8D%E5%9C%A8%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E8%AE%B0%E5%BD%95/"/>
       <url>/2019/06/19/SQL%E8%AF%AD%E5%8F%A5%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%9F%A5%E8%AF%A2%E5%AD%98%E5%9C%A8%E4%B8%80%E4%B8%AA%E8%A1%A8%E8%80%8C%E4%B8%8D%E5%9C%A8%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E8%AE%B0%E5%BD%95/</url>
