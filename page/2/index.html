@@ -180,6 +180,79 @@
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/hibernate关于FetchType-LAZY和FetchType-EAGER什么区别/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="郑永荣">
+        <meta itemprop="description" content>
+        <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="个人博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/06/17/hibernate关于FetchType-LAZY和FetchType-EAGER什么区别/" itemprop="url">hibernate关于FetchType.LAZY和FetchType.EAGER什么区别</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-17T19:43:13+08:00">2019-06-17 19:43:13</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hibernate/" itemprop="url" rel="index"><span itemprop="name">Hibernate</span></a></span>
+        </span>
+        
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <p>1、<strong>FetchType.LAZY：</strong>懒加载，加载一个实体时，定义懒加载的属性不会马上从数据库中加载。</p>
+<p>2、<strong>FetchType.EAGER：</strong>急加载，加载一个实体时，定义急加载的属性会立即从数据库中加载。</p>
+<h3 id="example："><a href="#example：" class="headerlink" title="example："></a>example：</h3><ul>
+<li>比方User类有两个属性，name跟address，就像百度知道，登录后用户名是需要显示出来的，此属性用到的几率极大，要马上到数据库查，用急加载；</li>
+<li>而用户地址大多数情况下不需要显示出来，只有在查看用户资料是才需要显示，需要用了才查数据库，用懒加载就好了。所以，并不是一登录就把用户的所有资料都加载到对象中;</li>
+<li>于是有了这两种加载模式。</li>
+</ul>
+<h2 id="A、实体对象的延迟加载"><a href="#A、实体对象的延迟加载" class="headerlink" title="A、实体对象的延迟加载 "></a>A、实体对象的延迟加载 </h2><p>如果想对实体对象使用延迟加载，必须要在实体的映射配置文件中进行相应的配置，如下所示：</p>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-tag">&lt;<span class="hljs-name">hibernate-mapping</span>&gt;</span><br>　<span class="hljs-tag">&lt;<span class="hljs-name">class</span> <span class="hljs-attr">name</span>=<span class="hljs-string">”com.neusoft.entity.User”</span> <span class="hljs-attr">table</span>=<span class="hljs-string">”user”</span> <span class="hljs-attr">lazy</span>=<span class="hljs-string">”true”</span>&gt;</span><br>    　……<br>　<span class="hljs-tag">&lt;/<span class="hljs-name">class</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">hibernate-mapping</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>一般是对整个实体对象进行设置是否是懒加载，而非单个属性。若该实体对象关联某个对象，如下面：</p>
+<h2 id="关联的实体对象通常是懒加载"><a href="#关联的实体对象通常是懒加载" class="headerlink" title="关联的实体对象通常是懒加载"></a>关联的实体对象通常是懒加载</h2><figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta">@Entity</span><br><span class="hljs-meta">@Table</span>(name=<span class="hljs-string">"t_company"</span>)<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Company</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseEntity</span>&lt;<span class="hljs-title">Long</span>&gt;<br></span>&#123;<br>	<span class="hljs-keyword">private</span> String companyName;<br>	<br>	<span class="hljs-keyword">private</span> List&lt;Flight&gt; flights = <span class="hljs-keyword">new</span> ArrayList&lt;Flight&gt;();<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getCompanyName</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">return</span> companyName;<br>	&#125;<br><br>	<span class="hljs-meta">@OneToMany</span>(cascade=CascadeType.ALL,mappedBy=<span class="hljs-string">"company"</span>,fetch=FetchType.LAZY)<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Flight&gt; <span class="hljs-title">getFlights</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">return</span> flights;<br>	&#125;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setFlights</span><span class="hljs-params">(List&lt;Flight&gt; flights)</span> </span>&#123;<br>		<span class="hljs-keyword">this</span>.flights = flights;<br>	&#125;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setCompanyName</span><span class="hljs-params">(String companyName)</span> </span>&#123;<br>		<span class="hljs-keyword">this</span>.companyName = companyName;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>mappedBy=”company”:设置mappedBy表示声明自己不是一对多的关系维护端，由对方来维护，是在一的一方进行声明的。mappedBy的值应该为一的一方的表名。</p>
+</li>
+<li><p>fetch=FetchType.LAZY:关联的实体对象是懒加载</p>
+</li>
+</ul>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Java/" rel="tag"><i class="fas fa-tags"></i>Java</a>
+        
+        <a class="post-tag button" href="/tags/Hibernate/" rel="tag"><i class="fas fa-tags"></i>Hibernate</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/Java-类class或者list-class-转化为的Json/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="郑永荣">
@@ -295,130 +368,6 @@
     </footer>
   </article>
   
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/基于Hexo-Github搭建个人博客/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="郑永荣">
-        <meta itemprop="description" content>
-        <meta itemprop="image" content="/images/myavatar.png">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="个人博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/16/基于Hexo-Github搭建个人博客/" itemprop="url">基于Hexo+Github搭建个人博客</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-16T14:10:43+08:00">2019-06-16 14:10:43</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web前端/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a></span>
-        </span>
-        
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <p>一直想要拥有自己的一个博客，CSDN，那些又觉得不够个性化</p>
-<p> <strong>Github搭建博客的优点：</strong></p>
-<blockquote>
-<p>1、不需要域名和服务器<br>2、访问自己博客的时候没有广告<br>3、可以自己修改样式，能根据自己的需求加功能。</p>
-</blockquote>
-<p>首先来一篇预览的博客，让大家看看效果：这是我自己用Github搭建的：<a href="https://zhengyongrong.github.io/" target="_blank" rel="noopener">https://zhengyongrong.github.io/</a></p>
-<h2 id="以下操作基于Windows环境"><a href="#以下操作基于Windows环境" class="headerlink" title="以下操作基于Windows环境"></a><strong>以下操作基于Windows环境</strong></h2><p>首先博客搭建的环境﻿</p>
-<blockquote>
-<p>node.js 因为整个博客框架是基于node.js的，所以必须安装node.js环境，安装过程中一路Next即可。<br>Git客户端 Git用来将hexo的相关文件部署到Github上去，安装过程一路Next。</p>
-</blockquote>
-<h2 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h2><blockquote>
-<p>环境准备好以后，我们便可以安装hexo的博客框架。<br>在桌面鼠标右击，选择 Git Bash Here,</p>
-</blockquote>
-<p>然后就会打开Git的命令窗口，在命令窗口输入安装命令后，然后回车</p>
-<figure class="hljs highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">npm <span class="hljs-keyword">install</span> -g hexo<br></code></pre></td></tr></table></figure>
-
-<p>然后在指定的盘新建一个名为“ hexo ”的文件夹，然后以下的命令都在新建的hexo文件下进行</p>
-<blockquote>
-<p>在这个新建的文件夹内鼠标右键，同样选择Git Bash Here,输入初始化命令，然后回车;<br>等命令执行完，就会看到生成了一系列的文件；</p>
-</blockquote>
-<figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">hexo init</span><br></code></pre></td></tr></table></figure>
-
-<p>安装相关的依赖包，输入下面的命令，回车</p>
-<figure class="hljs highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">npm <span class="hljs-keyword">install</span><br></code></pre></td></tr></table></figure>
-
-<p>接着在hexo文件夹下面继续执行以下命令</p>
-<figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">hexo g<br>hexo s</span><br></code></pre></td></tr></table></figure>
-
-<p>命令执行完后浏览器访问<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> ,就会看到hexo的初始界面，是不是有着一丝丝的成就感？但是，这个界面还是在本地，别人并不能看到，想要别人看到，我们就必须将这些文件部署到Github上去。</p>
-<h2 id="创建Github号"><a href="#创建Github号" class="headerlink" title="创建Github号"></a>创建Github号</h2><blockquote>
-<p>首先我们需要到Github官网创建一个账号，创建链接：Github</p>
-</blockquote>
-<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><blockquote>
-<p>创建完账号后我们新建一个Repository</p>
-</blockquote>
-<p><strong>这里要注意仓库的名字，必须是自己的Github账户的用户名.github.io</strong></p>
-<h2 id="部署文件到Github"><a href="#部署文件到Github" class="headerlink" title="部署文件到Github"></a>部署文件到Github</h2><blockquote>
-<p>接下来就是部署文件到Github了。<br>用Nodepad++打开hexo文件夹下面的_config.yml文件，该文件的最下面找到关键字deploy,然后修改成下面这样，用我自己的做案例</p>
-</blockquote>
-<figure class="hljs highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">  type:</span> git<br><span class="hljs-symbol">  repository:</span> <span class="hljs-params">&lt;https://github.com/Chakid/Chakid.github.io.git&gt;</span><br><span class="hljs-symbol">  branch:</span> master<br></code></pre></td></tr></table></figure>
-
-<p>这里拥有两个注意点：</p>
-<blockquote>
-<p>1、每个冒号后面都有一个空格，修改的时候别忘了；<br>2、注意修改的对应点要是自己的Github的账户名，别修改错了。<br>修改完保存<br>但是这样还不能连接到 github ，我们还需要配置SSH，找到路径C:\Users\leeyom.ssh，如果已经存在SSH Keys ，直接删除.ssh 文件夹下的所有的文件，如下图。</p>
-</blockquote>
-<p>然后继续在hexo文件夹下面输入下面的指令</p>
-<figure class="hljs highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-selector-tag">ssh-keygen</span> <span class="hljs-selector-tag">-t</span> <span class="hljs-selector-tag">rsa</span> <span class="hljs-selector-tag">-C</span> "1547658639@<span class="hljs-keyword">qq</span>.<span class="hljs-keyword">com</span>"<br></code></pre></td></tr></table></figure>
-
-<p>然后再回车三次，等命令执行完，再输入以下指令</p>
-<figure class="hljs highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">eval `ssh-agent -s`<br>ssh-add<br></code></pre></td></tr></table></figure>
-
-<p>然后输入指令拷贝Key</p>
-<figure class="hljs highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">clip &lt; ~<span class="hljs-regexp">/.ssh/i</span>d_rsa.pub<br></code></pre></td></tr></table></figure>
-
-<p>然后进入自己刚注册的Github</p>
-<p>接下来测试ssh是否配好了，输入下面的指令，会提示你输入yes/no你输入yes就行，这样ssh就配好了，接下来我们就可以将项目部署到Github上面了。</p>
-<figure class="hljs highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-selector-tag">ssh</span> <span class="hljs-selector-tag">-T</span> <span class="hljs-selector-tag">git</span>@<span class="hljs-keyword">github</span>.<span class="hljs-keyword">com</span><br></code></pre></td></tr></table></figure>
-
-<p>然后执行以下命令将项目部署到Github上面</p>
-<figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">hexo g<br>hexo d</span><br></code></pre></td></tr></table></figure>
-
-<p>但是输入hexo d可能会报ERROR Deployer not fount： git错误，这是因为没有安装hexo-deployer-git这个模块，导致Git不能识别该命令，输入下面指令安装该模块即可。</p>
-<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">npm <span class="hljs-keyword">install</span> hexo-deployer-git <span class="hljs-comment">--save</span><br></code></pre></td></tr></table></figure>
-
-<p>安装该模块的时间由网速决定，因为Github毕竟是国外的网站，并不是很稳定，所以请读者耐心等待。有事可能会因为断网等导致该模块安装失败，安装失败时还请读者多试两边。等模块安装完再次执行</p>
-<figure class="hljs highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-attribute">hexo d</span><br></code></pre></td></tr></table></figure>
-
-<p>这是就会有弹出框，输入自己之前注册的github账号进行登录即可，然后浏览器输入Chakid.github.io进行访问即可，（将Chakid改成自己之前注册的Github的用户名即可） 这时就会发现可以访问自己之前在本地预览的页面了。</p>
-<h2 id="此时是不是有着一丝丝的成就感，终于有了属于自己的博客。"><a href="#此时是不是有着一丝丝的成就感，终于有了属于自己的博客。" class="headerlink" title="此时是不是有着一丝丝的成就感，终于有了属于自己的博客。"></a>此时是不是有着一丝丝的成就感，终于有了属于自己的博客。</h2><h2 id="附录："><a href="#附录：" class="headerlink" title="附录："></a><strong>附录：</strong></h2><p>常用指令</p>
-<figure class="hljs highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined">hexo g #完整命令为hexo <span class="hljs-keyword">generate</span>,用于生成静态文件<br>hexo s #完整命令为hexo server,用于启动服务器，主要用来本地预览<br>hexo d #完整命令为hexo deploy,用于将本地文件发布到github上<br>hexo n #完整命令为hexo <span class="hljs-keyword">new</span>,用于新建一篇文章<br></code></pre></td></tr></table></figure>
-
-<p>转载自<a href="https://www.chakid.com/" target="_blank" rel="noopener">https://www.chakid.com/</a> ，感谢该作者。</p>
-
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/Hexo/" rel="tag"><i class="fas fa-tags"></i>Hexo</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
@@ -465,21 +414,21 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">10</a></div>
+      <div><a href="/archives/">11</a></div>
     </div>
     
     
     
     <div class="categories-count count-block">
       <div class="site-count-title">分类</div>
-      <div><a href="/categories/">6</a></div>
+      <div><a href="/categories/">7</a></div>
     </div>
     
     
     
     <div class="tags-count count-block">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">6</a></div>
+      <div><a href="/tags/">7</a></div>
     </div>
     
     
