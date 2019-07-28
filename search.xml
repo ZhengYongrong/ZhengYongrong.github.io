@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>为什么使用List list = new ArrayList</title>
+      <title>为什么使用List list = new ArrayList()</title>
       <link href="/2019/07/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AFList-list-new-ArrayList%EF%BC%8C%E8%80%8C%E4%B8%8D%E7%9B%B4%E6%8E%A5%E7%94%A8-ArrayList-list-new-ArrayList/"/>
       <url>/2019/07/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AFList-list-new-ArrayList%EF%BC%8C%E8%80%8C%E4%B8%8D%E7%9B%B4%E6%8E%A5%E7%94%A8-ArrayList-list-new-ArrayList/</url>
       
@@ -371,22 +371,22 @@
     
     
     <entry>
-      <title>about</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[<p><strong>教育经历</strong></p><blockquote><p>东莞理工学院 - 软件工程专业（教育部“卓越工程师计划“） 本科 网络空间安全学院 2016年9月 - 2020年6月<br>GPA：3.56 / 5.0（专业前5%）</p></blockquote><p><strong>荣誉证书</strong></p><blockquote><p>2016-2017学年东莞理工学院一等奖学金<br>2016-2017学年校级优秀大学生称号<br>2017-2018学年校级优秀学生干部<br>2017-2018学年四六级证书<br>2018-2019学年全国大学生创新创业实践项目（省级）<br>2018-2019学年第十届蓝桥杯全国软件和信息技术专业人才大赛—个人赛省赛（软件类）三等奖       </p></blockquote><p><strong>项目经历</strong></p><blockquote><p>大学生通过填写的信息，智能匹配CP。CP可以参加交友平台发布的线上线下活动，增进彼此的感情， 也可以到社区发布心情，平台会一直跟进CP的亲密度变化。</p></blockquote><p><strong>项目职责：</strong></p><blockquote><p>1.参与项目的需求分析、可行性分析，完成详细设计；<br>2.负责数据库的设计及SQL的编写；<br>3.作为后端开发人员，负责后台与数据库的连接，后端与前端数据的交互，及后端大部分功能的实现；<br>4.在Linux下进行程序部署，负责数据库和服务器的日常维护和管理。</p></blockquote>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>about</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p><strong>教育经历</strong></p><blockquote><p>东莞理工学院 - 软件工程专业（教育部“卓越工程师计划“） 本科 网络空间安全学院 2016年9月 - 2020年6月<br>GPA：3.56 / 5.0（专业前5%）</p></blockquote><p><strong>荣誉证书</strong></p><blockquote><p>2016-2017学年东莞理工学院一等奖学金<br>2016-2017学年校级优秀大学生称号<br>2017-2018学年校级优秀学生干部<br>2017-2018学年四六级证书<br>2018-2019学年全国大学生创新创业实践项目（省级）<br>2018-2019学年第十届蓝桥杯全国软件和信息技术专业人才大赛—个人赛省赛（软件类）三等奖       </p></blockquote><p><strong>项目经历</strong></p><blockquote><p>大学生通过填写的信息，智能匹配CP。CP可以参加交友平台发布的线上线下活动，增进彼此的感情， 也可以到社区发布心情，平台会一直跟进CP的亲密度变化。</p></blockquote><p><strong>项目职责：</strong></p><blockquote><p>1.参与项目的需求分析、可行性分析，完成详细设计；<br>2.负责数据库的设计及SQL的编写；<br>3.作为后端开发人员，负责后台与数据库的连接，后端与前端数据的交互，及后端大部分功能的实现；<br>4.在Linux下进行程序部署，负责数据库和服务器的日常维护和管理。</p></blockquote>]]></content>
       
     </entry>
     
