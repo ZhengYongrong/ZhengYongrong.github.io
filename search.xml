@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>为什么使用List list = new ArrayList</title>
+      <link href="/2019/07/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AFList-list-new-ArrayList%EF%BC%8C%E8%80%8C%E4%B8%8D%E7%9B%B4%E6%8E%A5%E7%94%A8-ArrayList-list-new-ArrayList/"/>
+      <url>/2019/07/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AFList-list-new-ArrayList%EF%BC%8C%E8%80%8C%E4%B8%8D%E7%9B%B4%E6%8E%A5%E7%94%A8-ArrayList-list-new-ArrayList/</url>
+      
+        <content type="html"><![CDATA[<h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><ul><li><p>List是一个接口，而ArrayList 是一个类，ArrayList 继承并实现了List。</p></li><li><p>List list = new  ArrayList();这句创建了一个ArrayList的对象后把上溯到了List。此时它是一个List对象了，有些ArrayList有但是 List没有的属性和方法，它就不能再用了。</p></li><li><p>而ArrayList list=new  ArrayList();创建一对象则保留了ArrayList的所有属性。</p></li></ul><h3 id="面向接口编程思想"><a href="#面向接口编程思想" class="headerlink" title="面向接口编程思想"></a>面向接口编程思想</h3><p> 首先，面向接口编程和面向对象编程并不是平级的，它并不是比面向对象编程更先进的一种独立的编程思想，而是附属于面向对象思想体系，属于其一部分。或者说，它是面向对象编程体系中的思想精髓之一。</p><figure class="hljs highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">// 1.这样你就只能调用List接口里面定义好的方法，而不能使用你自己在ArrayList扩展的方法。</span><br>     <span class="hljs-built_in">List</span> <span class="hljs-built_in">list</span> = <span class="hljs-literal">new</span> ArrayList();<br>      <br><span class="hljs-comment">// 2.这样你可以使用自己在ArrayList类上扩展的方法</span><br>    ArrayList <span class="hljs-built_in">list</span> = <span class="hljs-literal">new</span> ArrayList();<br><span class="hljs-comment">// 接口就是定义了一些行为，它要求你应该做什么。</span><br><span class="hljs-comment">// 假如你采用了面向接口编程方式，也就是第一种方式：List list = new ArrayList();</span><br><span class="hljs-comment">// 就能通过接口很大限度上规范开发人员的实现规则，因为你现在只能调用接口的方法。</span><br></code></pre></td></tr></table></figure><h4 id="为什么一般都使用-List-list-new-ArrayList-而不用-ArrayList-alist-new-ArrayList-呢？"><a href="#为什么一般都使用-List-list-new-ArrayList-而不用-ArrayList-alist-new-ArrayList-呢？" class="headerlink" title="为什么一般都使用 List list = new ArrayList() ,而不用 ArrayList alist = new ArrayList()呢？"></a>为什么一般都使用 List list = new ArrayList() ,而不用 ArrayList alist = new ArrayList()呢？</h4><blockquote><p>如果没有特别需求的话(比如使用自己在ArrayList类上扩展的方法),最好使用List list = new LinkedList(); ,便于程序代码的重构. 这就是面向接口编程的好处。</p></blockquote><p><strong>解释：</strong> </p><blockquote><p>List有多个实现类，如LinkedList或者Vector等等，现在你用的是ArrayList，也许哪一天你需要换成其它的实现类呢？这时你只要改变这一行就行了：List list = new LinkedList();<br>其它使用了list地方的代码根本不需要改动。<br>假设你开始用 ArrayList alist = new ArrayList(), 这下你有的改了，特别是如果你使用了 ArrayList特有的方法和属性。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>乐观锁与悲观锁</title>
       <link href="/2019/06/28/%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81/"/>
       <url>/2019/06/28/%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81/</url>
