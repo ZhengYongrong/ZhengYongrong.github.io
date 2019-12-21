@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Centos安装教程 | 个人博客</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">个人博客</a></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/21/Centos安装教程/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="郑永荣">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="个人博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Centos安装教程</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-12-21T10:10:19+08:00">2019-12-21 10:10:19</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+        </span>
+        
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h3 id="1、CentOS-7镜像下载"><a href="#1、CentOS-7镜像下载" class="headerlink" title="1、CentOS 7镜像下载"></a>1、CentOS 7镜像下载</h3><p>阿里云站点：<a href="http://mirrors.aliyun.com/centos/7/isos/x86_64/" target="_blank" rel="noopener">http://mirrors.aliyun.com/centos/7/isos/x86_64/</a><br>各个版本的ISO镜像文件说明：<br><img src="https://img-blog.csdnimg.cn/20191220093618493.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="站点截图"></p>
+<ul>
+<li>CentOS-7-x86_64-DVD-1708.iso                 标准安装版（推荐）</li>
+<li>CentOS-7-x86_64-Everything-1708.iso       完整版，集成所有软件</li>
+<li>CentOS-7-x86_64-Minimal-1708.iso            精简版，自带的软件最少</li>
+</ul>
+<h3 id="2、centos7安装教程"><a href="#2、centos7安装教程" class="headerlink" title="2、centos7安装教程"></a>2、centos7安装教程</h3><p><a href="https://blog.csdn.net/qq_42570879/article/details/82853708" target="_blank" rel="noopener">使用VMware安装centos教程</a></p>
+<h3 id="3、xshell连接centos"><a href="#3、xshell连接centos" class="headerlink" title="3、xshell连接centos"></a>3、xshell连接centos</h3><p><strong>查看IP：</strong><a href="https://www.cnblogs.com/technology-huangyan/p/9146699.html" target="_blank" rel="noopener">参考链接</a><br><strong>发现 ens33 没有 inet 这个属性的</strong><br><img src="https://img-blog.csdnimg.cn/20191220094439252.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="终端截图"></p>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vi /etc/sysconfig/network-scripts/ifcfg-ens33<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20191220094545828.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt><br><strong>把这一项改为YES（ONBOOT=yes）</strong><br><img src="https://img-blog.csdnimg.cn/20191220094636963.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt><br><strong>使用xshell连接：</strong><br><img src="https://img-blog.csdnimg.cn/20191220094831687.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt></p>
+<h3 id="4-、JDK安装教程"><a href="#4-、JDK安装教程" class="headerlink" title="4 、JDK安装教程"></a>4 、JDK安装教程</h3><p><a href="https://blog.csdn.net/github_38336924/article/details/82221258" target="_blank" rel="noopener">参考文章</a></p>
+<h5 id="一、检查是否已安装JDK及卸载"><a href="#一、检查是否已安装JDK及卸载" class="headerlink" title="一、检查是否已安装JDK及卸载"></a>一、检查是否已安装JDK及卸载</h5><figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span> （以下命令二选一）<br>yum list installed | grep [java][jdk]<br>rpm -qa | grep [java][jdk][gcj]<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20191220095752351.png" alt><br>执行命令出现如上图所示，需要卸载，反之即不用</p>
+<ul>
+<li>卸载JAVA环境<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y remove java-1.8.0-openjdk*  //表时卸载所有openjdk相关文件输入<br>yum -y remove tzdata-java.noarch   //卸载tzdata-java<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="二、安装JDK"><a href="#二、安装JDK" class="headerlink" title="二、安装JDK"></a>二、安装JDK</h5><ul>
+<li><p>查看JDK软件包列表</p>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum search java | grep -i --color jdk<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>选择版本安装</p>
+</li>
+</ul>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>或者如下命令，安装jdk1.8.0的所有文件</li>
+</ul>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install -y java-1.8.0-openjdk*<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>查看JDK是否安装成功</li>
+</ul>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">java -version<br></code></pre></td></tr></table></figure>
+
+<h5 id="三、配置环境变量"><a href="#三、配置环境变量" class="headerlink" title="三、配置环境变量"></a>三、配置环境变量</h5><ul>
+<li>JDK默认安装路径/usr/lib/jvm<br><img src="https://img-blog.csdnimg.cn/20191220100155757.png" alt></li>
+<li>使用vi /etc/profile命令添加如下配置<figure class="hljs highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment"># set java environment  </span><br>JAVA_HOME=<span class="hljs-regexp">/usr/lib</span><span class="hljs-regexp">/jvm/java</span>-<span class="hljs-number">1.8</span>.<span class="hljs-number">0</span>-openjdk-<span class="hljs-number">1.8</span>.<span class="hljs-number">0.181</span>-<span class="hljs-number">3</span>.b13.el7_5.x86_64<br>PATH=$<span class="hljs-symbol">PATH:</span>$JAVA_HOME/bin  <br>CLASSPATH=.:$JAVA_HOME/<span class="hljs-class"><span class="hljs-keyword">lib</span>/<span class="hljs-title">dt</span>.<span class="hljs-title">jar</span>:$<span class="hljs-title">JAVA_HOME</span>/<span class="hljs-title">lib</span>/<span class="hljs-title">tools</span>.<span class="hljs-title">jar</span>  </span><br>export JAVA_HOME  CLASSPATH  PATH<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>保存关闭profile文件，执行如下命令生效</p>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">source  /etc/profile<br></code></pre></td></tr></table></figure>
+
+<p>使用如下命令，查看JDK变量</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$JAVA_HOME</span><br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$PATH</span><br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$CLASSPATH</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20191220100344353.png" alt></p>
+<h3 id="5、SpringBoot-项目在linux后台守护进程运行"><a href="#5、SpringBoot-项目在linux后台守护进程运行" class="headerlink" title="5、SpringBoot 项目在linux后台守护进程运行"></a>5、SpringBoot 项目在linux后台守护进程运行</h3><p><a href="https://blog.csdn.net/qq_42714869/article/details/88550501" target="_blank" rel="noopener">参考链接</a></p>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nohup java -jar /usr/actuator-0.0.1-SNAPSHOT.jar --server.port=8080  &gt;logName.log 2&gt;&amp;1 &amp;<br></code></pre></td></tr></table></figure>
+
+<p><strong>命令详解：</strong></p>
+<ul>
+<li><p>nohup：不挂断地运行命令，退出帐户之后继续运行相应的进程。</p>
+</li>
+<li><p>logName.log ：是nohup把command的输出重定向到当前目录的指定的“日志文件名.log”文件中，即输出内容不打印到屏幕上，而是输出到”日志文件名.log”文件中。不指定文件名会在当前目录创建nohup.out，如果当前目录的 nohup.out 文件不可写，输出重定向到 $HOME/nohup.out 文件中。如果没有文件能创建或打开以用于追加，那么 Command 参数指定的命令不可调用。</p>
+</li>
+<li><p>2&gt;&amp;1：2就是标准错误，1是标准输出，该命令相当于把标准错误重定向到标准输出么。这里&amp;相当于标准错误等效于标准输出，即把标准错误和标准输出同时输出到指定的“日志文件名.log”文件中。</p>
+</li>
+<li><p>java -jar springbootProjectName.jar：执行springboot的项目，如果单单只执行该命令，linux只会短暂的运行该项目，当退出控制台后会自动关闭该项目。</p>
+</li>
+<li><p>最后的&amp;：让该项目在后台运行。</p>
+</li>
+</ul>
+<p><strong>注意：</strong>  bash: nohup: command not found解决方法：<br><a href="https://blog.csdn.net/leisure_life/article/details/80533492" target="_blank" rel="noopener">参考链接</a></p>
+<ul>
+<li>查看本地是否有<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">which nohup<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20191220104642199.png" alt></p>
+<ul>
+<li>到当前用户的根目录（我的是root）</li>
+</ul>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd ~<br>vi .bash_profile<br></code></pre></td></tr></table></figure>
+
+<p>在原来后边加上:/usr/bin，保存，退出<br><img src="https://img-blog.csdnimg.cn/20191220104832839.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt></p>
+<ul>
+<li>使文件立刻生效</li>
+</ul>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">source ~/.bash_profile<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>查看是否成功<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nohup --version<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20191220105011963.png" alt><br>如果第一步就没有发现nohup，先安装，再配置</p>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install coreutils<br></code></pre></td></tr></table></figure>
+
+<h3 id="6、外部访问项目"><a href="#6、外部访问项目" class="headerlink" title="6、外部访问项目"></a>6、外部访问项目</h3><figure class="hljs highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># 虚拟机内部链接测试（确保项目运行正常）：</span><br>curl http:<span class="hljs-comment">//localhost:8080/hello</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20191220110927898.png" alt></p>
+<h4 id="外部访问必须关闭防火墙或者开放相应的端口"><a href="#外部访问必须关闭防火墙或者开放相应的端口" class="headerlink" title="外部访问必须关闭防火墙或者开放相应的端口"></a>外部访问必须关闭防火墙或者开放相应的端口</h4><ul>
+<li><p><a href="https://jingyan.baidu.com/article/ff42efa9fd8c1cc19e2202bb.html" target="_blank" rel="noopener">关闭防火墙</a></p>
+</li>
+<li><p><a href="https://www.linuxidc.com/Linux/2019-06/159104.htm" target="_blank" rel="noopener">开放端口（开放端口需要重启防火墙）</a></p>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell">开启端口<br>[root@centos7 ~]# firewall-cmd --zone=public --add-port=80/tcp --permanent<br><br>查询端口号80 是否开启：<br>[root@centos7 ~]# firewall-cmd --query-port=80/tcp<br><br>重启防火墙：<br>[root@centos7 ~]# firewall-cmd --reload<br><br>查询有哪些端口是开启的:<br>[root@centos7 ~]# firewall-cmd --list-port<br><br>命令含义：<br>--zone #作用域<br>--add-port=80/tcp #添加端口80，格式为：端口/通讯协议<br>--permanent #永久生效，没有此参数重启后失效<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="hljs highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-number">1.</span>启动防火墙<br>systemctl start firewalld <br><span class="hljs-number">2.</span>禁用防火墙<br>systemctl stop firewalld<br><span class="hljs-number">3.</span>设置开机启动<br>systemctl enable firewalld<br><span class="hljs-number">4.</span>停止并禁用开机启动<br>sytemctl disable firewalld<br><span class="hljs-number">5.</span>重启防火墙<br>firewall-cmd --reload<br><span class="hljs-number">6.</span>查看状态<br>systemctl status firewalld或者 firewall-cmd --<span class="hljs-section">state</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>端口被占用解决方法：<figure class="hljs highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># 查看正在使用的端口</span><br>netstat -tanlp<br><span class="hljs-meta"># 杀死进程</span><br>kill  pid<br></code></pre></td></tr></table></figure></li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Linux/" rel="tag"><i class="fas fa-tags"></i>Linux</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/12/21/docker学习笔记/" rel="next" title="docker学习笔记"><i class="fas fa-angle-left"></i><span class="nav-title">docker学习笔记</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+  
+
+<div class="comments" id="comments">
+  
+  
+  <div id="vcomments" class="vcomments"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    new Valine({
+      "el": "#vcomments",
+      "appId": "hW4tpVA35RheDKY3J8TWE2JS-gzGzoHsz",
+      "appKey": "rR6O9TjnxpwjSQV7yRCrRKvH",
+      "verify": "false",
+      "notify": "false",
+      "avatar": "mm",
+      "meta": ["nick", "mail", "link"],
+      "pageSize": 10,
+      "lang": "zh-cn",
+      "visitor": "false",
+      "highlight": "true",
+      "placeholder": "在这里说点什么……",
+      "avatarForce": "false"
+    });
+  });
+  </script>
+  
+  
+</div>
+
+
+
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/myavatar.png" alt="郑永荣">
+  
+  <h1 class="author-name">郑永荣</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">16</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">8</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">9</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1、CentOS-7镜像下载"><span class="toc-text">1、CentOS 7镜像下载</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2、centos7安装教程"><span class="toc-text">2、centos7安装教程</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3、xshell连接centos"><span class="toc-text">3、xshell连接centos</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-、JDK安装教程"><span class="toc-text">4 、JDK安装教程</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#一、检查是否已安装JDK及卸载"><span class="toc-text">一、检查是否已安装JDK及卸载</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#二、安装JDK"><span class="toc-text">二、安装JDK</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#三、配置环境变量"><span class="toc-text">三、配置环境变量</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#5、SpringBoot-项目在linux后台守护进程运行"><span class="toc-text">5、SpringBoot 项目在linux后台守护进程运行</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#6、外部访问项目"><span class="toc-text">6、外部访问项目</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#外部访问必须关闭防火墙或者开放相应的端口"><span class="toc-text">外部访问必须关闭防火墙或者开放相应的端口</span></a></li></ol></li></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:yongrongzheng@foxmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/ZhengYongrong" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-cuttlefish"></i><a href="https://me.csdn.net/weixin_42342702" target="_blank">CSDN</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://mvnrepository.com/" target="_blank">Maven</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">郑永荣</span><span class="year"><i class="far fa-copyright"></i>2017 - 2019</span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

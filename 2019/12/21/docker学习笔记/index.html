@@ -212,15 +212,14 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <p>@[toc]</p>
-<h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><p><strong>Docker</strong>是一个开源的应用容器引擎；是一个轻量级容器技术；</p>
+      <h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><p><strong>Docker</strong>是一个开源的应用容器引擎；是一个轻量级容器技术；</p>
 <p>Docker支持将软件编译成一个镜像；然后在镜像中各种软件做好配置，将镜像发布出去，其他使用者可以直接使用这个镜像；</p>
-<p>运行中的这个镜像称为容器，容器启动是非常快速的。<br><img src="https://img-blog.csdnimg.cn/2019120709145317.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191207091505219.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>运行中的这个镜像称为容器，容器启动是非常快速的。<br><img src="https://img-blog.csdnimg.cn/2019120709145317.png" alt="docker"><br><img src="https://img-blog.csdnimg.cn/20191207091505219.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="windows镜像系统"></p>
 <h2 id="2、核心概念"><a href="#2、核心概念" class="headerlink" title="2、核心概念"></a>2、核心概念</h2><p>docker主机(Host)：安装了Docker程序的机器（Docker直接安装在操作系统之上）；</p>
 <p>docker客户端(Client)：连接docker主机进行操作；</p>
 <p>docker仓库(Registry)：用来保存各种打包好的软件镜像；</p>
 <p>docker镜像(Images)：软件打包好的镜像；放在docker仓库中；</p>
-<p>docker容器(Container)：镜像启动后的实例称为一个容器；容器是独立运行的一个或一组应用<br><img src="https://img-blog.csdnimg.cn/2019120709154056.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>docker容器(Container)：镜像启动后的实例称为一个容器；容器是独立运行的一个或一组应用<br><img src="https://img-blog.csdnimg.cn/2019120709154056.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="核心概念"></p>
 <p>使用Docker的步骤：</p>
 <p>1）、安装Docker</p>
 <p>2）、去Docker仓库找到这个软件对应的镜像；</p>
@@ -338,8 +337,8 @@
 <li>http.cors.enabled：是否支持跨域，默认为false。</li>
 <li>http.cors.allow-origin：当设置允许跨域，默认为*，表示支持所有域名，如果我们只是允许某些网站能访问，那么可以使用正则表达式。</li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/201912071557173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>访问截图：</p>
-<p><img src="https://img-blog.csdnimg.cn/20191207155655168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/201912071557173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="elasticsearch.yml"><br>访问截图：</p>
+<p><img src="https://img-blog.csdnimg.cn/20191207155655168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="访问截图"></p>
 <h3 id="5）、安装rabbitMQ"><a href="#5）、安装rabbitMQ" class="headerlink" title="5）、安装rabbitMQ"></a>5）、安装rabbitMQ</h3><p><a href="https://www.cnblogs.com/yufeng218/p/9452621.html" target="_blank" rel="noopener">参考文章：https://www.cnblogs.com/yufeng218/p/9452621.html</a><br>拉取镜像：选择带有<strong>mangement</strong>的版本（<strong>包含web管理页面</strong>）</p>
 <figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull rabbitmq:management<br></code></pre></td></tr></table></figure>
 
@@ -354,7 +353,7 @@
 <figure class="hljs highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment"># 进入控制台</span><br>docker exec -<span class="hljs-keyword">it</span> rabbitmq  /bin/bash<br></code></pre></td></tr></table></figure>
 
 <p><strong>此时已经可以正常外部访问网址：域名:端口号</strong></p>
-<p>访问截图：<br><img src="https://img-blog.csdnimg.cn/20191218105031534.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>访问截图：<br><img src="https://img-blog.csdnimg.cn/20191218105031534.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="访问截图"></p>
 
     </main>
     <footer class="post-footer">
@@ -394,6 +393,8 @@
       
     </div>
     <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/12/21/Centos安装教程/" rel="prev" title="Centos安装教程"><span class="nav-title">Centos安装教程</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -462,7 +463,7 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">15</a></div>
+      <div><a href="/archives/">16</a></div>
     </div>
     
     

@@ -180,6 +180,168 @@
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/21/Centos安装教程/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="郑永荣">
+        <meta itemprop="description" content>
+        <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="个人博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/12/21/Centos安装教程/" itemprop="url">Centos安装教程</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-12-21T10:10:19+08:00">2019-12-21 10:10:19</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+        </span>
+        
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h3 id="1、CentOS-7镜像下载"><a href="#1、CentOS-7镜像下载" class="headerlink" title="1、CentOS 7镜像下载"></a>1、CentOS 7镜像下载</h3><p>阿里云站点：<a href="http://mirrors.aliyun.com/centos/7/isos/x86_64/" target="_blank" rel="noopener">http://mirrors.aliyun.com/centos/7/isos/x86_64/</a><br>各个版本的ISO镜像文件说明：<br><img src="https://img-blog.csdnimg.cn/20191220093618493.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="站点截图"></p>
+<ul>
+<li>CentOS-7-x86_64-DVD-1708.iso                 标准安装版（推荐）</li>
+<li>CentOS-7-x86_64-Everything-1708.iso       完整版，集成所有软件</li>
+<li>CentOS-7-x86_64-Minimal-1708.iso            精简版，自带的软件最少</li>
+</ul>
+<h3 id="2、centos7安装教程"><a href="#2、centos7安装教程" class="headerlink" title="2、centos7安装教程"></a>2、centos7安装教程</h3><p><a href="https://blog.csdn.net/qq_42570879/article/details/82853708" target="_blank" rel="noopener">使用VMware安装centos教程</a></p>
+<h3 id="3、xshell连接centos"><a href="#3、xshell连接centos" class="headerlink" title="3、xshell连接centos"></a>3、xshell连接centos</h3><p><strong>查看IP：</strong><a href="https://www.cnblogs.com/technology-huangyan/p/9146699.html" target="_blank" rel="noopener">参考链接</a><br><strong>发现 ens33 没有 inet 这个属性的</strong><br><img src="https://img-blog.csdnimg.cn/20191220094439252.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="终端截图"></p>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vi /etc/sysconfig/network-scripts/ifcfg-ens33<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20191220094545828.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt><br><strong>把这一项改为YES（ONBOOT=yes）</strong><br><img src="https://img-blog.csdnimg.cn/20191220094636963.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt><br><strong>使用xshell连接：</strong><br><img src="https://img-blog.csdnimg.cn/20191220094831687.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt></p>
+<h3 id="4-、JDK安装教程"><a href="#4-、JDK安装教程" class="headerlink" title="4 、JDK安装教程"></a>4 、JDK安装教程</h3><p><a href="https://blog.csdn.net/github_38336924/article/details/82221258" target="_blank" rel="noopener">参考文章</a></p>
+<h5 id="一、检查是否已安装JDK及卸载"><a href="#一、检查是否已安装JDK及卸载" class="headerlink" title="一、检查是否已安装JDK及卸载"></a>一、检查是否已安装JDK及卸载</h5><figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span> （以下命令二选一）<br>yum list installed | grep [java][jdk]<br>rpm -qa | grep [java][jdk][gcj]<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20191220095752351.png" alt><br>执行命令出现如上图所示，需要卸载，反之即不用</p>
+<ul>
+<li>卸载JAVA环境<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y remove java-1.8.0-openjdk*  //表时卸载所有openjdk相关文件输入<br>yum -y remove tzdata-java.noarch   //卸载tzdata-java<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="二、安装JDK"><a href="#二、安装JDK" class="headerlink" title="二、安装JDK"></a>二、安装JDK</h5><ul>
+<li><p>查看JDK软件包列表</p>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum search java | grep -i --color jdk<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>选择版本安装</p>
+</li>
+</ul>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>或者如下命令，安装jdk1.8.0的所有文件</li>
+</ul>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install -y java-1.8.0-openjdk*<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>查看JDK是否安装成功</li>
+</ul>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">java -version<br></code></pre></td></tr></table></figure>
+
+<h5 id="三、配置环境变量"><a href="#三、配置环境变量" class="headerlink" title="三、配置环境变量"></a>三、配置环境变量</h5><ul>
+<li>JDK默认安装路径/usr/lib/jvm<br><img src="https://img-blog.csdnimg.cn/20191220100155757.png" alt></li>
+<li>使用vi /etc/profile命令添加如下配置<figure class="hljs highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment"># set java environment  </span><br>JAVA_HOME=<span class="hljs-regexp">/usr/lib</span><span class="hljs-regexp">/jvm/java</span>-<span class="hljs-number">1.8</span>.<span class="hljs-number">0</span>-openjdk-<span class="hljs-number">1.8</span>.<span class="hljs-number">0.181</span>-<span class="hljs-number">3</span>.b13.el7_5.x86_64<br>PATH=$<span class="hljs-symbol">PATH:</span>$JAVA_HOME/bin  <br>CLASSPATH=.:$JAVA_HOME/<span class="hljs-class"><span class="hljs-keyword">lib</span>/<span class="hljs-title">dt</span>.<span class="hljs-title">jar</span>:$<span class="hljs-title">JAVA_HOME</span>/<span class="hljs-title">lib</span>/<span class="hljs-title">tools</span>.<span class="hljs-title">jar</span>  </span><br>export JAVA_HOME  CLASSPATH  PATH<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>保存关闭profile文件，执行如下命令生效</p>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">source  /etc/profile<br></code></pre></td></tr></table></figure>
+
+<p>使用如下命令，查看JDK变量</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$JAVA_HOME</span><br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$PATH</span><br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$CLASSPATH</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20191220100344353.png" alt></p>
+<h3 id="5、SpringBoot-项目在linux后台守护进程运行"><a href="#5、SpringBoot-项目在linux后台守护进程运行" class="headerlink" title="5、SpringBoot 项目在linux后台守护进程运行"></a>5、SpringBoot 项目在linux后台守护进程运行</h3><p><a href="https://blog.csdn.net/qq_42714869/article/details/88550501" target="_blank" rel="noopener">参考链接</a></p>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nohup java -jar /usr/actuator-0.0.1-SNAPSHOT.jar --server.port=8080  &gt;logName.log 2&gt;&amp;1 &amp;<br></code></pre></td></tr></table></figure>
+
+<p><strong>命令详解：</strong></p>
+<ul>
+<li><p>nohup：不挂断地运行命令，退出帐户之后继续运行相应的进程。</p>
+</li>
+<li><p>logName.log ：是nohup把command的输出重定向到当前目录的指定的“日志文件名.log”文件中，即输出内容不打印到屏幕上，而是输出到”日志文件名.log”文件中。不指定文件名会在当前目录创建nohup.out，如果当前目录的 nohup.out 文件不可写，输出重定向到 $HOME/nohup.out 文件中。如果没有文件能创建或打开以用于追加，那么 Command 参数指定的命令不可调用。</p>
+</li>
+<li><p>2&gt;&amp;1：2就是标准错误，1是标准输出，该命令相当于把标准错误重定向到标准输出么。这里&amp;相当于标准错误等效于标准输出，即把标准错误和标准输出同时输出到指定的“日志文件名.log”文件中。</p>
+</li>
+<li><p>java -jar springbootProjectName.jar：执行springboot的项目，如果单单只执行该命令，linux只会短暂的运行该项目，当退出控制台后会自动关闭该项目。</p>
+</li>
+<li><p>最后的&amp;：让该项目在后台运行。</p>
+</li>
+</ul>
+<p><strong>注意：</strong>  bash: nohup: command not found解决方法：<br><a href="https://blog.csdn.net/leisure_life/article/details/80533492" target="_blank" rel="noopener">参考链接</a></p>
+<ul>
+<li>查看本地是否有<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">which nohup<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20191220104642199.png" alt></p>
+<ul>
+<li>到当前用户的根目录（我的是root）</li>
+</ul>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd ~<br>vi .bash_profile<br></code></pre></td></tr></table></figure>
+
+<p>在原来后边加上:/usr/bin，保存，退出<br><img src="https://img-blog.csdnimg.cn/20191220104832839.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt></p>
+<ul>
+<li>使文件立刻生效</li>
+</ul>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">source ~/.bash_profile<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>查看是否成功<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nohup --version<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20191220105011963.png" alt><br>如果第一步就没有发现nohup，先安装，再配置</p>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install coreutils<br></code></pre></td></tr></table></figure>
+
+<h3 id="6、外部访问项目"><a href="#6、外部访问项目" class="headerlink" title="6、外部访问项目"></a>6、外部访问项目</h3><figure class="hljs highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># 虚拟机内部链接测试（确保项目运行正常）：</span><br>curl http:<span class="hljs-comment">//localhost:8080/hello</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20191220110927898.png" alt></p>
+<h4 id="外部访问必须关闭防火墙或者开放相应的端口"><a href="#外部访问必须关闭防火墙或者开放相应的端口" class="headerlink" title="外部访问必须关闭防火墙或者开放相应的端口"></a>外部访问必须关闭防火墙或者开放相应的端口</h4><ul>
+<li><p><a href="https://jingyan.baidu.com/article/ff42efa9fd8c1cc19e2202bb.html" target="_blank" rel="noopener">关闭防火墙</a></p>
+</li>
+<li><p><a href="https://www.linuxidc.com/Linux/2019-06/159104.htm" target="_blank" rel="noopener">开放端口（开放端口需要重启防火墙）</a></p>
+<figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell">开启端口<br>[root@centos7 ~]# firewall-cmd --zone=public --add-port=80/tcp --permanent<br><br>查询端口号80 是否开启：<br>[root@centos7 ~]# firewall-cmd --query-port=80/tcp<br><br>重启防火墙：<br>[root@centos7 ~]# firewall-cmd --reload<br><br>查询有哪些端口是开启的:<br>[root@centos7 ~]# firewall-cmd --list-port<br><br>命令含义：<br>--zone #作用域<br>--add-port=80/tcp #添加端口80，格式为：端口/通讯协议<br>--permanent #永久生效，没有此参数重启后失效<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="hljs highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-number">1.</span>启动防火墙<br>systemctl start firewalld <br><span class="hljs-number">2.</span>禁用防火墙<br>systemctl stop firewalld<br><span class="hljs-number">3.</span>设置开机启动<br>systemctl enable firewalld<br><span class="hljs-number">4.</span>停止并禁用开机启动<br>sytemctl disable firewalld<br><span class="hljs-number">5.</span>重启防火墙<br>firewall-cmd --reload<br><span class="hljs-number">6.</span>查看状态<br>systemctl status firewalld或者 firewall-cmd --<span class="hljs-section">state</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>端口被占用解决方法：<figure class="hljs highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-meta"># 查看正在使用的端口</span><br>netstat -tanlp<br><span class="hljs-meta"># 杀死进程</span><br>kill  pid<br></code></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Linux/" rel="tag"><i class="fas fa-tags"></i>Linux</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/21/docker学习笔记/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="郑永荣">
@@ -216,15 +378,14 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       
-      <p>@[toc]</p>
-<h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><p><strong>Docker</strong>是一个开源的应用容器引擎；是一个轻量级容器技术；</p>
+      <h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><p><strong>Docker</strong>是一个开源的应用容器引擎；是一个轻量级容器技术；</p>
 <p>Docker支持将软件编译成一个镜像；然后在镜像中各种软件做好配置，将镜像发布出去，其他使用者可以直接使用这个镜像；</p>
-<p>运行中的这个镜像称为容器，容器启动是非常快速的。<br><img src="https://img-blog.csdnimg.cn/2019120709145317.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191207091505219.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>运行中的这个镜像称为容器，容器启动是非常快速的。<br><img src="https://img-blog.csdnimg.cn/2019120709145317.png" alt="docker"><br><img src="https://img-blog.csdnimg.cn/20191207091505219.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="windows镜像系统"></p>
 <h2 id="2、核心概念"><a href="#2、核心概念" class="headerlink" title="2、核心概念"></a>2、核心概念</h2><p>docker主机(Host)：安装了Docker程序的机器（Docker直接安装在操作系统之上）；</p>
 <p>docker客户端(Client)：连接docker主机进行操作；</p>
 <p>docker仓库(Registry)：用来保存各种打包好的软件镜像；</p>
 <p>docker镜像(Images)：软件打包好的镜像；放在docker仓库中；</p>
-<p>docker容器(Container)：镜像启动后的实例称为一个容器；容器是独立运行的一个或一组应用<br><img src="https://img-blog.csdnimg.cn/2019120709154056.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>docker容器(Container)：镜像启动后的实例称为一个容器；容器是独立运行的一个或一组应用<br><img src="https://img-blog.csdnimg.cn/2019120709154056.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="核心概念"></p>
 <p>使用Docker的步骤：</p>
 <p>1）、安装Docker</p>
 <p>2）、去Docker仓库找到这个软件对应的镜像；</p>
@@ -342,8 +503,8 @@
 <li>http.cors.enabled：是否支持跨域，默认为false。</li>
 <li>http.cors.allow-origin：当设置允许跨域，默认为*，表示支持所有域名，如果我们只是允许某些网站能访问，那么可以使用正则表达式。</li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/201912071557173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>访问截图：</p>
-<p><img src="https://img-blog.csdnimg.cn/20191207155655168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/201912071557173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="elasticsearch.yml"><br>访问截图：</p>
+<p><img src="https://img-blog.csdnimg.cn/20191207155655168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="访问截图"></p>
 <h3 id="5）、安装rabbitMQ"><a href="#5）、安装rabbitMQ" class="headerlink" title="5）、安装rabbitMQ"></a>5）、安装rabbitMQ</h3><p><a href="https://www.cnblogs.com/yufeng218/p/9452621.html" target="_blank" rel="noopener">参考文章：https://www.cnblogs.com/yufeng218/p/9452621.html</a><br>拉取镜像：选择带有<strong>mangement</strong>的版本（<strong>包含web管理页面</strong>）</p>
 <figure class="hljs highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull rabbitmq:management<br></code></pre></td></tr></table></figure>
 
@@ -358,7 +519,7 @@
 <figure class="hljs highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment"># 进入控制台</span><br>docker exec -<span class="hljs-keyword">it</span> rabbitmq  /bin/bash<br></code></pre></td></tr></table></figure>
 
 <p><strong>此时已经可以正常外部访问网址：域名:端口号</strong></p>
-<p>访问截图：<br><img src="https://img-blog.csdnimg.cn/20191218105031534.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>访问截图：<br><img src="https://img-blog.csdnimg.cn/20191218105031534.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjM0MjcwMg==,size_16,color_FFFFFF,t_70" alt="访问截图"></p>
 
       
     </main>
@@ -450,81 +611,9 @@
     </footer>
   </article>
   
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/28/为什么是List-list-new-ArrayList，而不直接用-ArrayList-list-new-ArrayList/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="郑永荣">
-        <meta itemprop="description" content>
-        <meta itemprop="image" content="/images/myavatar.png">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="个人博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/07/28/为什么是List-list-new-ArrayList，而不直接用-ArrayList-list-new-ArrayList/" itemprop="url">为什么使用List list = new ArrayList()</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-07-28T14:47:36+08:00">2019-07-28 14:47:36</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java后端/" itemprop="url" rel="index"><span itemprop="name">Java后端</span></a></span>
-        </span>
-        
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><ul>
-<li><p>List是一个接口，而ArrayList 是一个类，ArrayList 继承并实现了List。</p>
-</li>
-<li><p>List list = new  ArrayList();这句创建了一个ArrayList的对象后把上溯到了List。此时它是一个List对象了，有些ArrayList有但是 List没有的属性和方法，它就不能再用了。</p>
-</li>
-<li><p>而ArrayList list=new  ArrayList();创建一对象则保留了ArrayList的所有属性。</p>
-</li>
-</ul>
-<h3 id="面向接口编程思想"><a href="#面向接口编程思想" class="headerlink" title="面向接口编程思想"></a>面向接口编程思想</h3><p> 首先，面向接口编程和面向对象编程并不是平级的，它并不是比面向对象编程更先进的一种独立的编程思想，而是附属于面向对象思想体系，属于其一部分。或者说，它是面向对象编程体系中的思想精髓之一。</p>
-<figure class="hljs highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">// 1.这样你就只能调用List接口里面定义好的方法，而不能使用你自己在ArrayList扩展的方法。</span><br>     <span class="hljs-built_in">List</span> <span class="hljs-built_in">list</span> = <span class="hljs-literal">new</span> ArrayList();<br>      <br><span class="hljs-comment">// 2.这样你可以使用自己在ArrayList类上扩展的方法</span><br>    ArrayList <span class="hljs-built_in">list</span> = <span class="hljs-literal">new</span> ArrayList();<br><span class="hljs-comment">// 接口就是定义了一些行为，它要求你应该做什么。</span><br><span class="hljs-comment">// 假如你采用了面向接口编程方式，也就是第一种方式：List list = new ArrayList();</span><br><span class="hljs-comment">// 就能通过接口很大限度上规范开发人员的实现规则，因为你现在只能调用接口的方法。</span><br></code></pre></td></tr></table></figure>
-
-<h4 id="为什么一般都使用-List-list-new-ArrayList-而不用-ArrayList-alist-new-ArrayList-呢？"><a href="#为什么一般都使用-List-list-new-ArrayList-而不用-ArrayList-alist-new-ArrayList-呢？" class="headerlink" title="为什么一般都使用 List list = new ArrayList() ,而不用 ArrayList alist = new ArrayList()呢？"></a>为什么一般都使用 List list = new ArrayList() ,而不用 ArrayList alist = new ArrayList()呢？</h4><blockquote>
-<p>如果没有特别需求的话(比如使用自己在ArrayList类上扩展的方法),最好使用List list = new LinkedList(); ,便于程序代码的重构. 这就是面向接口编程的好处。</p>
-</blockquote>
-<p><strong>解释：</strong> </p>
-<blockquote>
-<p>List有多个实现类，如LinkedList或者Vector等等，现在你用的是ArrayList，也许哪一天你需要换成其它的实现类呢？这时你只要改变这一行就行了：List list = new LinkedList();<br>其它使用了list地方的代码根本不需要改动。<br>假设你开始用 ArrayList alist = new ArrayList(), 这下你有的改了，特别是如果你使用了 ArrayList特有的方法和属性。</p>
-</blockquote>
-
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/Java/" rel="tag"><i class="fas fa-tags"></i>Java</a>
-        
-        <a class="post-tag button" href="/tags/面试/" rel="tag"><i class="fas fa-tags"></i>面试</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -568,7 +657,7 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">15</a></div>
+      <div><a href="/archives/">16</a></div>
     </div>
     
     

@@ -180,6 +180,78 @@
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/28/为什么是List-list-new-ArrayList，而不直接用-ArrayList-list-new-ArrayList/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="郑永荣">
+        <meta itemprop="description" content>
+        <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="个人博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/07/28/为什么是List-list-new-ArrayList，而不直接用-ArrayList-list-new-ArrayList/" itemprop="url">为什么使用List list = new ArrayList()</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-07-28T14:47:36+08:00">2019-07-28 14:47:36</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java后端/" itemprop="url" rel="index"><span itemprop="name">Java后端</span></a></span>
+        </span>
+        
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><ul>
+<li><p>List是一个接口，而ArrayList 是一个类，ArrayList 继承并实现了List。</p>
+</li>
+<li><p>List list = new  ArrayList();这句创建了一个ArrayList的对象后把上溯到了List。此时它是一个List对象了，有些ArrayList有但是 List没有的属性和方法，它就不能再用了。</p>
+</li>
+<li><p>而ArrayList list=new  ArrayList();创建一对象则保留了ArrayList的所有属性。</p>
+</li>
+</ul>
+<h3 id="面向接口编程思想"><a href="#面向接口编程思想" class="headerlink" title="面向接口编程思想"></a>面向接口编程思想</h3><p> 首先，面向接口编程和面向对象编程并不是平级的，它并不是比面向对象编程更先进的一种独立的编程思想，而是附属于面向对象思想体系，属于其一部分。或者说，它是面向对象编程体系中的思想精髓之一。</p>
+<figure class="hljs highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment">// 1.这样你就只能调用List接口里面定义好的方法，而不能使用你自己在ArrayList扩展的方法。</span><br>     <span class="hljs-built_in">List</span> <span class="hljs-built_in">list</span> = <span class="hljs-literal">new</span> ArrayList();<br>      <br><span class="hljs-comment">// 2.这样你可以使用自己在ArrayList类上扩展的方法</span><br>    ArrayList <span class="hljs-built_in">list</span> = <span class="hljs-literal">new</span> ArrayList();<br><span class="hljs-comment">// 接口就是定义了一些行为，它要求你应该做什么。</span><br><span class="hljs-comment">// 假如你采用了面向接口编程方式，也就是第一种方式：List list = new ArrayList();</span><br><span class="hljs-comment">// 就能通过接口很大限度上规范开发人员的实现规则，因为你现在只能调用接口的方法。</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="为什么一般都使用-List-list-new-ArrayList-而不用-ArrayList-alist-new-ArrayList-呢？"><a href="#为什么一般都使用-List-list-new-ArrayList-而不用-ArrayList-alist-new-ArrayList-呢？" class="headerlink" title="为什么一般都使用 List list = new ArrayList() ,而不用 ArrayList alist = new ArrayList()呢？"></a>为什么一般都使用 List list = new ArrayList() ,而不用 ArrayList alist = new ArrayList()呢？</h4><blockquote>
+<p>如果没有特别需求的话(比如使用自己在ArrayList类上扩展的方法),最好使用List list = new LinkedList(); ,便于程序代码的重构. 这就是面向接口编程的好处。</p>
+</blockquote>
+<p><strong>解释：</strong> </p>
+<blockquote>
+<p>List有多个实现类，如LinkedList或者Vector等等，现在你用的是ArrayList，也许哪一天你需要换成其它的实现类呢？这时你只要改变这一行就行了：List list = new LinkedList();<br>其它使用了list地方的代码根本不需要改动。<br>假设你开始用 ArrayList alist = new ArrayList(), 这下你有的改了，特别是如果你使用了 ArrayList特有的方法和属性。</p>
+</blockquote>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Java/" rel="tag"><i class="fas fa-tags"></i>Java</a>
+        
+        <a class="post-tag button" href="/tags/面试/" rel="tag"><i class="fas fa-tags"></i>面试</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/28/对称加密和非对称加密-DES-and-RSA/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="郑永荣">
@@ -313,79 +385,9 @@
     </footer>
   </article>
   
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/20/Spring-MVC-工作原理/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="郑永荣">
-        <meta itemprop="description" content>
-        <meta itemprop="image" content="/images/myavatar.png">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="个人博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/20/Spring-MVC-工作原理/" itemprop="url">Spring MVC 工作原理</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-20T23:31:07+08:00">2019-06-20 23:31:07</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring-MVC/" itemprop="url" rel="index"><span itemprop="name">Spring MVC</span></a></span>
-        </span>
-        
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h1 id="1-Spring-MVC概述："><a href="#1-Spring-MVC概述：" class="headerlink" title="1.Spring MVC概述："></a>1.Spring MVC概述：</h1><ul>
-<li>Spring MVC是Spring提供的一个强大而灵活的web框架。借助于注解，Spring MVC提供了几乎是POJO的开发模式，使得控制器的开发和测试更加简单。这些控制器一般不直接处理请求，而是将其委托给Spring上下文中的其他bean，通过Spring的依赖注入功能，这些bean被注入到控制器中。</li>
-<li>Spring MVC主要由DispatcherServlet、处理器映射、处理器(控制器)、视图解析器、视图组成。<h4 id="他的两个核心是两个核心："><a href="#他的两个核心是两个核心：" class="headerlink" title="他的两个核心是两个核心："></a>他的两个核心是两个核心：</h4></li>
-<li>处理器映射：选择使用哪个控制器来处理请求 </li>
-<li>视图解析器：选择结果应该如何渲染<blockquote>
-<p>通过以上两点，Spring MVC保证了如何选择控制处理请求和如何选择视图展现输出之间的松耦合。</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="2-SpringMVC运行原理"><a href="#2-SpringMVC运行原理" class="headerlink" title="2.SpringMVC运行原理"></a>2.SpringMVC运行原理</h1><p>   <img src="https://img-blog.csdnimg.cn/20190620232830756.png" alt="在这里插入图片描述"></p>
-<ul>
-<li>(1) Http请求：客户端请求提交到DispatcherServlet。 </li>
-<li>(2) 寻找处理器：由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。 </li>
-<li>(3) 调用处理器：DispatcherServlet将请求提交到Controller。 </li>
-<li>(4)(5)调用业务处理和返回结果：Controller调用业务逻辑处理后，返回ModelAndView。 </li>
-<li>(6)(7)处理视图映射并返回模型： DispatcherServlet查询一个或多个ViewResoler视图解析器，找到ModelAndView指定的视图。 </li>
-<li>(8) Http响应：视图负责将结果显示到客户端。</li>
-</ul>
-
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/Spring-MVC/" rel="tag"><i class="fas fa-tags"></i>Spring MVC</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
   </nav>
   
   
@@ -429,7 +431,7 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">15</a></div>
+      <div><a href="/archives/">16</a></div>
     </div>
     
     
