@@ -180,6 +180,83 @@
   
   <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/28/对称加密和非对称加密-DES-and-RSA/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="郑永荣">
+        <meta itemprop="description" content>
+        <meta itemprop="image" content="/images/myavatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="个人博客">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link post-title-link-external" href="/2019/06/28/对称加密和非对称加密-DES-and-RSA/" itemprop="url">对称加密和非对称加密(DES and RSA)</a>
+      </h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-28T12:13:22+08:00">2019-06-28 12:13:22</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试/" itemprop="url" rel="index"><span itemprop="name">面试</span></a></span>
+        </span>
+        
+        
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      
+      <h3 id="1-对称加密"><a href="#1-对称加密" class="headerlink" title="1.对称加密"></a>1.对称加密</h3><p><strong>对称加密算法</strong>是应用较早的加密算法，又称为 共享密钥加密算法。在 对称加密算法 中，使用的密钥只有一个，发送 和 接收 双方都使用这个密钥对数据进行 加密 和 解密。这就要求加密和解密方事先都必须知道加密的密钥。</p>
+<ul>
+<li><p>数据加密过程：在对称加密算法中，数据发送方 将 明文 (原始数据) 和 加密密钥 一起经过特殊 加密处理，生成复杂的 加密密文 进行发送。</p>
+</li>
+<li><p>数据解密过程：数据接收方 收到密文后，若想读取原数据，则需要使用 加密使用的密钥 及相同算法的 逆算法 对加密的密文进行解密，才能使其恢复成 可读明文。</p>
+</li>
+</ul>
+<h4 id="1-1-DES算法"><a href="#1-1-DES算法" class="headerlink" title="1.1  DES算法"></a>1.1  DES算法</h4><p><strong>DES 加密算法</strong>是一种分组密码，以 64 位为 分组对数据 加密，它的 密钥长度 是 56 位，加密解密 用 同一算法。</p>
+<blockquote>
+<p>DES 加密算法是对 密钥 进行保密，而 公开算法，包括加密和解密算法。这样，只有掌握了和发送方 相同密钥 的人才能解读由 DES加密算法加密的密文数据。因此，破译 DES 加密算法实际上就是 搜索密钥的编码。对于 56 位长度的 密钥 来说，如果用 穷举法 来进行搜索的话，其运算次数为 2 ^ 56 次。</p>
+</blockquote>
+<h4 id="1-2-3DES算法"><a href="#1-2-3DES算法" class="headerlink" title="1.2  3DES算法"></a>1.2  3DES算法</h4><p>是基于 DES 的 对称算法，对 一块数据 用 三个不同的密钥 进行 三次加密，强度更高。</p>
+<h3 id="2-非对称加密"><a href="#2-非对称加密" class="headerlink" title="2. 非对称加密"></a>2. 非对称加密</h3><p><strong>非对称加密算法</strong>，又称为 公开密钥加密算法。它需要两个密钥，一个称为 公开密钥 (public key)，即 公钥，另一个称为 私有密钥 (private key)，即 私钥。因为 加密 和 解密 使用的是两个不同的密钥，所以这种算法称为 非对称加密算法。</p>
+<ul>
+<li><p>如果使用 公钥 对数据 进行加密，只有用对应的 私钥 才能 进行解密。</p>
+</li>
+<li><p>如果使用 私钥 对数据 进行加密，只有用对应的 公钥 才能 进行解密。</p>
+</li>
+</ul>
+<h4 id="2-1-RSA算法"><a href="#2-1-RSA算法" class="headerlink" title="2.1  RSA算法"></a>2.1  RSA算法</h4><p><strong>RSA 加密算法</strong>是目前最有影响力的 公钥加密算法，并且被普遍认为是目前 最优秀的公钥方案 之一。RSA 是第一个能同时用于 加密 和 数字签名 的算法，它能够 抵抗 到目前为止已知的 所有密码攻击，已被 ISO 推荐为公钥数据加密标准。</p>
+<blockquote>
+<p>RSA 加密算法 基于一个十分简单的数论事实：将两个大 素数 相乘十分容易，但想要对其乘积进行 因式分解 却极其困难，因此可以将 乘积 公开作为 加密密钥。</p>
+</blockquote>
+
+      
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/面试/" rel="tag"><i class="fas fa-tags"></i>面试</a>
+        
+        <a class="post-tag button" href="/tags/算法/" rel="tag"><i class="fas fa-tags"></i>算法</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
       <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/22/后端面试总结/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="郑永荣">
@@ -306,68 +383,6 @@
     </footer>
   </article>
   
-  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/19/SQL语句技巧：查询存在一个表而不在另一个表中的数据记录/">
-      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="郑永荣">
-        <meta itemprop="description" content>
-        <meta itemprop="image" content="/images/myavatar.png">
-      </span>
-      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="个人博客">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/06/19/SQL语句技巧：查询存在一个表而不在另一个表中的数据记录/" itemprop="url">SQL语句技巧：查询存在一个表而不在另一个表中的数据记录</a>
-      </h1>
-      <div class="post-meta">
-        
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-06-19T19:48:51+08:00">2019-06-19 19:48:51</time></span>
-        </span>
-        
-        
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
-          
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
-        </span>
-        
-        
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      
-      <h2 id="方法一-仅适用单个字段"><a href="#方法一-仅适用单个字段" class="headerlink" title="方法一(仅适用单个字段)"></a>方法一(仅适用单个字段)</h2><p>使用 not in ,容易理解,效率低</p>
-<figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">select</span> A.ID <span class="hljs-keyword">from</span> A <span class="hljs-keyword">where</span> A.ID <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (<span class="hljs-keyword">select</span> <span class="hljs-keyword">ID</span> <span class="hljs-keyword">from</span> B)<br></code></pre></td></tr></table></figure>
-
-<h2 id="方法二（适用多个字段匹配）"><a href="#方法二（适用多个字段匹配）" class="headerlink" title="方法二（适用多个字段匹配）"></a>方法二（适用多个字段匹配）</h2><p>使用 left join…on… , B.ID isnull  表示左连接之后在B.ID 字段为 null的记录</p>
-<figure class="hljs highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">select</span> A.ID <span class="hljs-keyword">from</span> A <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> B <span class="hljs-keyword">on</span> A.ID=B.ID <span class="hljs-keyword">where</span> B.ID <span class="hljs-keyword">is</span> <span class="hljs-literal">null</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="方法三（适用多个字段匹配）"><a href="#方法三（适用多个字段匹配）" class="headerlink" title="方法三（适用多个字段匹配）"></a>方法三（适用多个字段匹配）</h2><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> B <span class="hljs-keyword">where</span> (<span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(<span class="hljs-number">1</span>) <span class="hljs-keyword">as</span> <span class="hljs-keyword">num</span> <span class="hljs-keyword">from</span> A <span class="hljs-keyword">where</span> A.ID = B.ID) = <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="方法四（适用多个字段匹配）"><a href="#方法四（适用多个字段匹配）" class="headerlink" title="方法四（适用多个字段匹配）"></a>方法四（适用多个字段匹配）</h2><figure class="hljs highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> A <span class="hljs-keyword">where</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">exists</span>(<span class="hljs-keyword">select</span> <span class="hljs-number">1</span> <span class="hljs-keyword">from</span> B <span class="hljs-keyword">where</span> A.ID=B.ID)<br></code></pre></td></tr></table></figure>
-
-
-      
-    </main>
-    <footer class="post-footer">
-      
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/数据库/" rel="tag"><i class="fas fa-tags"></i>数据库</a>
-        
-      </div>
-      
-    </footer>
-  </article>
-  
   
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right" aria-label="下一页"></i></a>
@@ -414,21 +429,21 @@
     
     <div class="archives-count count-block">
       <div class="site-count-title">归档</div>
-      <div><a href="/archives/">14</a></div>
+      <div><a href="/archives/">15</a></div>
     </div>
     
     
     
     <div class="categories-count count-block">
       <div class="site-count-title">分类</div>
-      <div><a href="/categories/">7</a></div>
+      <div><a href="/categories/">8</a></div>
     </div>
     
     
     
     <div class="tags-count count-block">
       <div class="site-count-title">标签</div>
-      <div><a href="/tags/">8</a></div>
+      <div><a href="/tags/">9</a></div>
     </div>
     
     
